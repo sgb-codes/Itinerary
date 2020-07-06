@@ -14,6 +14,9 @@
 		2AA8CABF24B3847D00B30A98 /* TripsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA8CABE24B3847D00B30A98 /* TripsViewController.swift */; };
 		2AA8CAC124B3903900B30A98 /* TripsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA8CAC024B3903900B30A98 /* TripsTableViewCell.swift */; };
 		2AA8CAC524B39F1F00B30A98 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA8CAC424B39F1F00B30A98 /* UIViewExtensions.swift */; };
+		2AA8CAC824B3A11D00B30A98 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA8CAC724B3A11D00B30A98 /* Theme.swift */; };
+		2AA8CACA24B3A1FC00B30A98 /* FugazOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2AA8CAC924B3A1FC00B30A98 /* FugazOne-Regular.ttf */; };
+		2AA8CACC24B3A40600B30A98 /* Colours.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AA8CACB24B3A40600B30A98 /* Colours.xcassets */; };
 		2AEC6FA724AFA9F00015E092 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AEC6FA624AFA9F00015E092 /* AppDelegate.swift */; };
 		2AEC6FA924AFA9F00015E092 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AEC6FA824AFA9F00015E092 /* SceneDelegate.swift */; };
 		2AEC6FB024AFA9F30015E092 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AEC6FAF24AFA9F30015E092 /* Assets.xcassets */; };
@@ -28,6 +31,9 @@
 		2AA8CABE24B3847D00B30A98 /* TripsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripsViewController.swift; sourceTree = "<group>"; };
 		2AA8CAC024B3903900B30A98 /* TripsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripsTableViewCell.swift; sourceTree = "<group>"; };
 		2AA8CAC424B39F1F00B30A98 /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
+		2AA8CAC724B3A11D00B30A98 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		2AA8CAC924B3A1FC00B30A98 /* FugazOne-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FugazOne-Regular.ttf"; sourceTree = "<group>"; };
+		2AA8CACB24B3A40600B30A98 /* Colours.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colours.xcassets; sourceTree = "<group>"; };
 		2AEC6FA324AFA9F00015E092 /* Itinerary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Itinerary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AEC6FA624AFA9F00015E092 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2AEC6FA824AFA9F00015E092 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -91,6 +97,16 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		2AA8CAC624B3A10E00B30A98 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				2AA8CAC924B3A1FC00B30A98 /* FugazOne-Regular.ttf */,
+				2AA8CAC724B3A11D00B30A98 /* Theme.swift */,
+				2AA8CACB24B3A40600B30A98 /* Colours.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		2AEC6F9A24AFA9F00015E092 = {
 			isa = PBXGroup;
 			children = (
@@ -110,6 +126,7 @@
 		2AEC6FA524AFA9F00015E092 /* Itinerary */ = {
 			isa = PBXGroup;
 			children = (
+				2AA8CAC624B3A10E00B30A98 /* Resources */,
 				2AA8CAC224B39ED600B30A98 /* Extensions */,
 				2AA8CAB024B37D8800B30A98 /* Model */,
 				2AA8CABD24B3842700B30A98 /* Views */,
@@ -181,7 +198,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				2AEC6FB324AFA9F30015E092 /* LaunchScreen.storyboard in Resources */,
+				2AA8CACC24B3A40600B30A98 /* Colours.xcassets in Resources */,
 				2AA8CABC24B3841200B30A98 /* TripsViewController.storyboard in Resources */,
+				2AA8CACA24B3A1FC00B30A98 /* FugazOne-Regular.ttf in Resources */,
 				2AEC6FB024AFA9F30015E092 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -193,6 +212,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2AA8CAC824B3A11D00B30A98 /* Theme.swift in Sources */,
 				2AEC6FA724AFA9F00015E092 /* AppDelegate.swift in Sources */,
 				2AA8CAB724B37FCA00B30A98 /* Data.swift in Sources */,
 				2AA8CAC524B39F1F00B30A98 /* UIViewExtensions.swift in Sources */,
