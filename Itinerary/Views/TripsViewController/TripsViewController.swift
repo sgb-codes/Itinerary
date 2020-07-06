@@ -8,8 +8,8 @@
 
 import UIKit
 
-class TripsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-
+class TripsViewController: UIViewController{
+    
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
@@ -22,6 +22,9 @@ class TripsViewController: UIViewController, UITableViewDataSource, UITableViewD
             self?.tableView.reloadData()
         }
     }
+}
+
+extension TripsViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return Data.tripModels.count
@@ -39,3 +42,5 @@ class TripsViewController: UIViewController, UITableViewDataSource, UITableViewD
         return 160
     }
 }
+
+
