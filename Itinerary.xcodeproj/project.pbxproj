@@ -12,6 +12,7 @@
 		2AA8CAB724B37FCA00B30A98 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA8CAB624B37FCA00B30A98 /* Data.swift */; };
 		2AA8CABC24B3841200B30A98 /* TripsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2AA8CABB24B3841200B30A98 /* TripsViewController.storyboard */; };
 		2AA8CABF24B3847D00B30A98 /* TripsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA8CABE24B3847D00B30A98 /* TripsViewController.swift */; };
+		2AA8CAC124B3903900B30A98 /* TripsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA8CAC024B3903900B30A98 /* TripsTableViewCell.swift */; };
 		2AEC6FA724AFA9F00015E092 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AEC6FA624AFA9F00015E092 /* AppDelegate.swift */; };
 		2AEC6FA924AFA9F00015E092 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AEC6FA824AFA9F00015E092 /* SceneDelegate.swift */; };
 		2AEC6FB024AFA9F30015E092 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AEC6FAF24AFA9F30015E092 /* Assets.xcassets */; };
@@ -24,6 +25,7 @@
 		2AA8CAB624B37FCA00B30A98 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		2AA8CABB24B3841200B30A98 /* TripsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TripsViewController.storyboard; sourceTree = "<group>"; };
 		2AA8CABE24B3847D00B30A98 /* TripsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripsViewController.swift; sourceTree = "<group>"; };
+		2AA8CAC024B3903900B30A98 /* TripsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripsTableViewCell.swift; sourceTree = "<group>"; };
 		2AEC6FA324AFA9F00015E092 /* Itinerary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Itinerary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AEC6FA624AFA9F00015E092 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2AEC6FA824AFA9F00015E092 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 			children = (
 				2AA8CABB24B3841200B30A98 /* TripsViewController.storyboard */,
 				2AA8CABE24B3847D00B30A98 /* TripsViewController.swift */,
+				2AA8CAC024B3903900B30A98 /* TripsTableViewCell.swift */,
 			);
 			path = TripsViewController;
 			sourceTree = "<group>";
@@ -184,6 +187,7 @@
 				2AEC6FA924AFA9F00015E092 /* SceneDelegate.swift in Sources */,
 				2AA8CABF24B3847D00B30A98 /* TripsViewController.swift in Sources */,
 				2AA8CAB524B37DB800B30A98 /* TripFunctions.swift in Sources */,
+				2AA8CAC124B3903900B30A98 /* TripsTableViewCell.swift in Sources */,
 				2AA8CAB324B37DAD00B30A98 /* TripModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
