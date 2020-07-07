@@ -18,10 +18,10 @@
 		2AA8CACA24B3A1FC00B30A98 /* FugazOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2AA8CAC924B3A1FC00B30A98 /* FugazOne-Regular.ttf */; };
 		2AA8CACC24B3A40600B30A98 /* Colours.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AA8CACB24B3A40600B30A98 /* Colours.xcassets */; };
 		2AA8CACE24B464E200B30A98 /* UIAddTripButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA8CACD24B464E200B30A98 /* UIAddTripButtonExtension.swift */; };
-		2AA8CAD024B4743500B30A98 /* AddTripViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2AA8CACF24B4743500B30A98 /* AddTripViewController.storyboard */; };
 		2AA8CAD324B4746900B30A98 /* AddTripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA8CAD224B4746900B30A98 /* AddTripViewController.swift */; };
 		2AA8CAD624B478DA00B30A98 /* PopupUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA8CAD524B478DA00B30A98 /* PopupUIView.swift */; };
 		2AA8CAD824B47A9300B30A98 /* PopupButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA8CAD724B47A9300B30A98 /* PopupButton.swift */; };
+		2AC144F724B4857E0048F07A /* AddTripViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2AC144F624B4857E0048F07A /* AddTripViewController.storyboard */; };
 		2AEC6FA724AFA9F00015E092 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AEC6FA624AFA9F00015E092 /* AppDelegate.swift */; };
 		2AEC6FA924AFA9F00015E092 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AEC6FA824AFA9F00015E092 /* SceneDelegate.swift */; };
 		2AEC6FB024AFA9F30015E092 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AEC6FAF24AFA9F30015E092 /* Assets.xcassets */; };
@@ -40,10 +40,10 @@
 		2AA8CAC924B3A1FC00B30A98 /* FugazOne-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FugazOne-Regular.ttf"; sourceTree = "<group>"; };
 		2AA8CACB24B3A40600B30A98 /* Colours.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colours.xcassets; sourceTree = "<group>"; };
 		2AA8CACD24B464E200B30A98 /* UIAddTripButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAddTripButtonExtension.swift; sourceTree = "<group>"; };
-		2AA8CACF24B4743500B30A98 /* AddTripViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AddTripViewController.storyboard; sourceTree = "<group>"; };
 		2AA8CAD224B4746900B30A98 /* AddTripViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTripViewController.swift; sourceTree = "<group>"; };
 		2AA8CAD524B478DA00B30A98 /* PopupUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupUIView.swift; sourceTree = "<group>"; };
 		2AA8CAD724B47A9300B30A98 /* PopupButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupButton.swift; sourceTree = "<group>"; };
+		2AC144F624B4857E0048F07A /* AddTripViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AddTripViewController.storyboard; sourceTree = "<group>"; };
 		2AEC6FA324AFA9F00015E092 /* Itinerary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Itinerary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AEC6FA624AFA9F00015E092 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2AEC6FA824AFA9F00015E092 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -124,7 +124,7 @@
 		2AA8CAD124B4744100B30A98 /* AddTripViewController */ = {
 			isa = PBXGroup;
 			children = (
-				2AA8CACF24B4743500B30A98 /* AddTripViewController.storyboard */,
+				2AC144F624B4857E0048F07A /* AddTripViewController.storyboard */,
 				2AA8CAD224B4746900B30A98 /* AddTripViewController.swift */,
 			);
 			path = AddTripViewController;
@@ -228,7 +228,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2AA8CAD024B4743500B30A98 /* AddTripViewController.storyboard in Resources */,
+				2AC144F724B4857E0048F07A /* AddTripViewController.storyboard in Resources */,
 				2AEC6FB324AFA9F30015E092 /* LaunchScreen.storyboard in Resources */,
 				2AA8CACC24B3A40600B30A98 /* Colours.xcassets in Resources */,
 				2AA8CABC24B3841200B30A98 /* TripsViewController.storyboard in Resources */,

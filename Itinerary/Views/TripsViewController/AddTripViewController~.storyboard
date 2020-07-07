@@ -64,7 +64,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" image="plus" catalog="system"/>
                                 <connections>
-                                    <segue destination="VEy-sm-rZq" kind="presentation" modalPresentationStyle="overFullScreen" id="RfZ-ST-9Rq"/>
+                                    <segue destination="Ogp-Fd-a0A" kind="presentation" modalPresentationStyle="overFullScreen" id="RfZ-ST-9Rq"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -86,11 +86,18 @@
             </objects>
             <point key="canvasLocation" x="-186.95652173913044" y="-104.46428571428571"/>
         </scene>
-        <!--AddTripViewController-->
-        <scene sceneID="JC7-xg-d0r">
+        <!--Add Trip View Controller-->
+        <scene sceneID="DAl-nR-Fgc">
             <objects>
-                <viewControllerPlaceholder storyboardName="AddTripViewController" id="VEy-sm-rZq" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="2Uv-PQ-z8i" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewController id="Ogp-Fd-a0A" customClass="AddTripViewController" customModule="Itinerary" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Pxz-lT-UcE">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.40000000000000002" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="U2i-Op-yLI"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dLT-1y-DYN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="570" y="-103"/>
         </scene>
