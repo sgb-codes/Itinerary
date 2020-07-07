@@ -16,24 +16,42 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aag-1i-M3K" customClass="PopupUIView" customModule="Itinerary" customModuleProvider="target">
-                                <rect key="frame" x="10" y="358" width="394" height="180"/>
+                                <rect key="frame" x="10" y="363" width="394" height="170"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Mhv-Gn-app">
-                                        <rect key="frame" x="10" y="10" width="374" height="160"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZLn-5Z-fkg">
+                                        <rect key="frame" x="0.0" y="0.0" width="394" height="170"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Mhv-Gn-app">
+                                        <rect key="frame" x="10" y="10" width="374" height="150"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Trip" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8W1-DR-sEl">
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="nIy-QN-VBB">
                                                 <rect key="frame" x="0.0" y="0.0" width="374" height="40"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Trip" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8W1-DR-sEl">
+                                                        <rect key="frame" x="0.0" y="0.0" width="187" height="40"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wf0-4X-aY3">
+                                                        <rect key="frame" x="187" y="0.0" width="187" height="40"/>
+                                                        <state key="normal" image="camera" catalog="system">
+                                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="26" scale="large" weight="bold"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="addPhoto:" destination="Ogp-Fd-a0A" eventType="touchUpInside" id="P16-oh-zlU"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Trip name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lg2-Li-j1Y">
-                                                <rect key="frame" x="0.0" y="60" width="374" height="40"/>
+                                                <rect key="frame" x="0.0" y="55" width="374" height="40"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="100" translatesAutoresizingMaskIntoConstraints="NO" id="SHR-oJ-Jw2">
-                                                <rect key="frame" x="0.0" y="120" width="374" height="40"/>
+                                                <rect key="frame" x="0.0" y="110" width="374" height="40"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="loA-yl-e98" customClass="PopupButton" customModule="Itinerary" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="137" height="40"/>
@@ -60,11 +78,11 @@
                                         </subviews>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="lg2-Li-j1Y" secondAttribute="trailing" id="7Fc-U7-XI9"/>
+                                            <constraint firstAttribute="trailing" secondItem="nIy-QN-VBB" secondAttribute="trailing" id="F1y-VG-73k"/>
                                             <constraint firstItem="lg2-Li-j1Y" firstAttribute="leading" secondItem="Mhv-Gn-app" secondAttribute="leading" id="Oah-7Y-qco"/>
-                                            <constraint firstItem="8W1-DR-sEl" firstAttribute="leading" secondItem="Mhv-Gn-app" secondAttribute="leading" id="Txg-b7-M7k"/>
                                             <constraint firstAttribute="trailing" secondItem="SHR-oJ-Jw2" secondAttribute="trailing" id="lKT-In-uX8"/>
+                                            <constraint firstItem="nIy-QN-VBB" firstAttribute="leading" secondItem="Mhv-Gn-app" secondAttribute="leading" id="lVD-FR-owm"/>
                                             <constraint firstItem="SHR-oJ-Jw2" firstAttribute="leading" secondItem="Mhv-Gn-app" secondAttribute="leading" id="lpf-7N-Pjf"/>
-                                            <constraint firstAttribute="trailing" secondItem="8W1-DR-sEl" secondAttribute="trailing" id="xCT-aa-TY7"/>
                                         </constraints>
                                     </stackView>
                                 </subviews>
@@ -86,7 +104,9 @@
                         <viewLayoutGuide key="safeArea" id="U2i-Op-yLI"/>
                     </view>
                     <connections>
+                        <outlet property="cameraButton" destination="wf0-4X-aY3" id="t8U-jd-09l"/>
                         <outlet property="cancelButton" destination="loA-yl-e98" id="a9s-n8-YPG"/>
+                        <outlet property="imageView" destination="ZLn-5Z-fkg" id="YKL-yZ-a2Q"/>
                         <outlet property="saveButton" destination="NcN-2A-7R3" id="UOm-GZ-jWp"/>
                         <outlet property="titleLabel" destination="8W1-DR-sEl" id="7yZ-Sx-R09"/>
                         <outlet property="tripTextField" destination="lg2-Li-j1Y" id="9ej-7D-weg"/>
@@ -97,4 +117,7 @@
             <point key="canvasLocation" x="569.56521739130437" y="-103.125"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="camera" catalog="system" width="128" height="96"/>
+    </resources>
 </document>

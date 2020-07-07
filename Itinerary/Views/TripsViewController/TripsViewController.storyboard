@@ -29,6 +29,9 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ena-JJ-vu9">
                                                     <rect key="frame" x="30" y="11" width="354" height="138"/>
                                                     <subviews>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="L1V-bt-sca">
+                                                            <rect key="frame" x="0.0" y="0.0" width="354" height="138"/>
+                                                        </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zhE-N6-M9i">
                                                             <rect key="frame" x="124.5" y="42" width="105.5" height="54"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="45"/>
@@ -38,7 +41,11 @@
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.16560864450000001" green="0.38210487370000001" blue="0.49021106959999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <constraints>
+                                                        <constraint firstItem="L1V-bt-sca" firstAttribute="top" secondItem="ena-JJ-vu9" secondAttribute="top" id="SJF-77-8rJ"/>
+                                                        <constraint firstItem="L1V-bt-sca" firstAttribute="leading" secondItem="ena-JJ-vu9" secondAttribute="leading" id="T0B-b0-yX1"/>
                                                         <constraint firstItem="zhE-N6-M9i" firstAttribute="centerX" secondItem="ena-JJ-vu9" secondAttribute="centerX" id="bLs-xH-sUq"/>
+                                                        <constraint firstAttribute="trailing" secondItem="L1V-bt-sca" secondAttribute="trailing" id="kaF-52-XPa"/>
+                                                        <constraint firstAttribute="bottom" secondItem="L1V-bt-sca" secondAttribute="bottom" id="rlw-ht-JG5"/>
                                                         <constraint firstItem="zhE-N6-M9i" firstAttribute="centerY" secondItem="ena-JJ-vu9" secondAttribute="centerY" id="wno-fz-5t8"/>
                                                     </constraints>
                                                 </view>
@@ -54,6 +61,7 @@
                                         <connections>
                                             <outlet property="cardView" destination="ena-JJ-vu9" id="QWt-Bc-5Nz"/>
                                             <outlet property="titleLabel" destination="zhE-N6-M9i" id="twK-1X-JsX"/>
+                                            <outlet property="tripImageView" destination="L1V-bt-sca" id="Hiw-SF-wdX"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
