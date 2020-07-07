@@ -26,21 +26,29 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="160"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ena-JJ-vu9">
-                                                    <rect key="frame" x="20" y="16" width="341" height="128"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ena-JJ-vu9">
+                                                    <rect key="frame" x="30" y="11" width="354" height="138"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zhE-N6-M9i">
-                                                            <rect key="frame" x="8" y="18" width="358" height="85"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zhE-N6-M9i">
+                                                            <rect key="frame" x="124.5" y="42" width="105.5" height="54"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="45"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.16560864450000001" green="0.38210487370000001" blue="0.49021106959999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <constraints>
+                                                        <constraint firstItem="zhE-N6-M9i" firstAttribute="centerX" secondItem="ena-JJ-vu9" secondAttribute="centerX" id="bLs-xH-sUq"/>
+                                                        <constraint firstItem="zhE-N6-M9i" firstAttribute="centerY" secondItem="ena-JJ-vu9" secondAttribute="centerY" id="wno-fz-5t8"/>
+                                                    </constraints>
                                                 </view>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="ena-JJ-vu9" secondAttribute="trailing" constant="10" id="Gf4-cW-FuU"/>
+                                                <constraint firstItem="ena-JJ-vu9" firstAttribute="top" secondItem="5hh-mc-blD" secondAttribute="topMargin" id="h6R-Yj-dMT"/>
+                                                <constraint firstItem="ena-JJ-vu9" firstAttribute="leading" secondItem="5hh-mc-blD" secondAttribute="leadingMargin" constant="10" id="jva-mC-EZc"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="ena-JJ-vu9" secondAttribute="bottom" id="oTn-cs-6C5"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
@@ -50,6 +58,12 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="YIE-fx-mAV">
+                                <rect key="frame" x="336" y="806" width="56" height="56"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" image="plus" catalog="system"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -61,6 +75,7 @@
                         <viewLayoutGuide key="safeArea" id="x3E-8g-MKy"/>
                     </view>
                     <connections>
+                        <outlet property="addButton" destination="YIE-fx-mAV" id="zC3-kW-gmi"/>
                         <outlet property="tableView" destination="tfM-Ws-kQ2" id="OG7-7n-wyb"/>
                     </connections>
                 </viewController>
@@ -69,4 +84,7 @@
             <point key="canvasLocation" x="-186.95652173913044" y="-104.46428571428571"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="plus" catalog="system" width="128" height="113"/>
+    </resources>
 </document>

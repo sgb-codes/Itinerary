@@ -11,6 +11,7 @@ import UIKit
 class TripsViewController: UIViewController{
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var addButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +24,7 @@ class TripsViewController: UIViewController{
         }
         
         view.backgroundColor = Theme.background
+        addButton.createFloatingActionButton()
     }
 }
 
@@ -41,7 +43,7 @@ extension TripsViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 160
+        return 140
     }
 }
 

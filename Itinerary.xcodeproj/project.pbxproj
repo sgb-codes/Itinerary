@@ -17,6 +17,7 @@
 		2AA8CAC824B3A11D00B30A98 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA8CAC724B3A11D00B30A98 /* Theme.swift */; };
 		2AA8CACA24B3A1FC00B30A98 /* FugazOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2AA8CAC924B3A1FC00B30A98 /* FugazOne-Regular.ttf */; };
 		2AA8CACC24B3A40600B30A98 /* Colours.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AA8CACB24B3A40600B30A98 /* Colours.xcassets */; };
+		2AA8CACE24B464E200B30A98 /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA8CACD24B464E200B30A98 /* UIButtonExtension.swift */; };
 		2AEC6FA724AFA9F00015E092 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AEC6FA624AFA9F00015E092 /* AppDelegate.swift */; };
 		2AEC6FA924AFA9F00015E092 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AEC6FA824AFA9F00015E092 /* SceneDelegate.swift */; };
 		2AEC6FB024AFA9F30015E092 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AEC6FAF24AFA9F30015E092 /* Assets.xcassets */; };
@@ -34,6 +35,7 @@
 		2AA8CAC724B3A11D00B30A98 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		2AA8CAC924B3A1FC00B30A98 /* FugazOne-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FugazOne-Regular.ttf"; sourceTree = "<group>"; };
 		2AA8CACB24B3A40600B30A98 /* Colours.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colours.xcassets; sourceTree = "<group>"; };
+		2AA8CACD24B464E200B30A98 /* UIButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
 		2AEC6FA324AFA9F00015E092 /* Itinerary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Itinerary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AEC6FA624AFA9F00015E092 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2AEC6FA824AFA9F00015E092 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				2AA8CAC424B39F1F00B30A98 /* UIViewExtensions.swift */,
+				2AA8CACD24B464E200B30A98 /* UIButtonExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -213,6 +216,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2AA8CAC824B3A11D00B30A98 /* Theme.swift in Sources */,
+				2AA8CACE24B464E200B30A98 /* UIButtonExtension.swift in Sources */,
 				2AEC6FA724AFA9F00015E092 /* AppDelegate.swift in Sources */,
 				2AA8CAB724B37FCA00B30A98 /* Data.swift in Sources */,
 				2AA8CAC524B39F1F00B30A98 /* UIViewExtensions.swift in Sources */,
