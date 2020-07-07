@@ -64,7 +64,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" image="plus" catalog="system"/>
                                 <connections>
-                                    <segue destination="VEy-sm-rZq" kind="presentation" modalPresentationStyle="overFullScreen" id="RfZ-ST-9Rq"/>
+                                    <segue destination="VEy-sm-rZq" kind="presentation" identifier="toAddTripSegue" modalPresentationStyle="overFullScreen" modalTransitionStyle="crossDissolve" id="RfZ-ST-9Rq"/>
                                 </connections>
                             </button>
                         </subviews>
