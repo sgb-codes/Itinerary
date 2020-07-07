@@ -16,8 +16,6 @@ class PopupButton: UIButton {
         // Frame and Background
         backgroundColor = Theme.tint
         setTitleColor(.white, for: .normal)
-        layer.cornerRadius = 10
-        
+        layer.cornerRadius = frame.height / 2
     }
-
 }

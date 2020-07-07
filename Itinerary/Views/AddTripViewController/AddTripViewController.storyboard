@@ -15,44 +15,74 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aag-1i-M3K">
-                                <rect key="frame" x="87" y="98" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aag-1i-M3K" customClass="PopupUIView" customModule="Itinerary" customModuleProvider="target">
+                                <rect key="frame" x="10" y="358" width="394" height="180"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8W1-DR-sEl">
-                                        <rect key="frame" x="141" y="24" width="56" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lg2-Li-j1Y">
-                                        <rect key="frame" x="72" y="47" width="97" height="34"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="loA-yl-e98">
-                                        <rect key="frame" x="27" y="98" width="46" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Button"/>
-                                        <connections>
-                                            <action selector="cancel:" destination="Ogp-Fd-a0A" eventType="touchUpInside" id="jaH-uA-7VT"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NcN-2A-7R3">
-                                        <rect key="frame" x="151" y="98" width="46" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Button"/>
-                                        <connections>
-                                            <action selector="save:" destination="Ogp-Fd-a0A" eventType="touchUpInside" id="UC2-d5-c2A"/>
-                                        </connections>
-                                    </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Mhv-Gn-app">
+                                        <rect key="frame" x="10" y="10" width="374" height="160"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Trip" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8W1-DR-sEl">
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="40"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Trip name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lg2-Li-j1Y">
+                                                <rect key="frame" x="0.0" y="60" width="374" height="40"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="100" translatesAutoresizingMaskIntoConstraints="NO" id="SHR-oJ-Jw2">
+                                                <rect key="frame" x="0.0" y="120" width="374" height="40"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="loA-yl-e98" customClass="PopupButton" customModule="Itinerary" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="137" height="40"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="40" id="ZMD-9S-2OR"/>
+                                                        </constraints>
+                                                        <state key="normal" title="Cancel"/>
+                                                        <connections>
+                                                            <action selector="cancel:" destination="Ogp-Fd-a0A" eventType="touchUpInside" id="jaH-uA-7VT"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NcN-2A-7R3" customClass="PopupButton" customModule="Itinerary" customModuleProvider="target">
+                                                        <rect key="frame" x="237" y="0.0" width="137" height="40"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="40" id="BTx-pA-zXr"/>
+                                                        </constraints>
+                                                        <state key="normal" title="Save"/>
+                                                        <connections>
+                                                            <action selector="save:" destination="Ogp-Fd-a0A" eventType="touchUpInside" id="UC2-d5-c2A"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="lg2-Li-j1Y" secondAttribute="trailing" id="7Fc-U7-XI9"/>
+                                            <constraint firstItem="lg2-Li-j1Y" firstAttribute="leading" secondItem="Mhv-Gn-app" secondAttribute="leading" id="Oah-7Y-qco"/>
+                                            <constraint firstItem="8W1-DR-sEl" firstAttribute="leading" secondItem="Mhv-Gn-app" secondAttribute="leading" id="Txg-b7-M7k"/>
+                                            <constraint firstAttribute="trailing" secondItem="SHR-oJ-Jw2" secondAttribute="trailing" id="lKT-In-uX8"/>
+                                            <constraint firstItem="SHR-oJ-Jw2" firstAttribute="leading" secondItem="Mhv-Gn-app" secondAttribute="leading" id="lpf-7N-Pjf"/>
+                                            <constraint firstAttribute="trailing" secondItem="8W1-DR-sEl" secondAttribute="trailing" id="xCT-aa-TY7"/>
+                                        </constraints>
+                                    </stackView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="Mhv-Gn-app" firstAttribute="top" secondItem="aag-1i-M3K" secondAttribute="top" constant="10" id="Deu-47-jXg"/>
+                                    <constraint firstAttribute="trailing" secondItem="Mhv-Gn-app" secondAttribute="trailing" constant="10" id="RPq-Hm-3nR"/>
+                                    <constraint firstItem="Mhv-Gn-app" firstAttribute="leading" secondItem="aag-1i-M3K" secondAttribute="leading" constant="10" id="gFM-Y2-H9Q"/>
+                                    <constraint firstAttribute="bottom" secondItem="Mhv-Gn-app" secondAttribute="bottom" constant="10" id="ytj-cm-ILy"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.40000000000000002" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="U2i-Op-yLI" firstAttribute="trailing" secondItem="aag-1i-M3K" secondAttribute="trailing" constant="10" id="2L7-Hk-Qk1"/>
+                            <constraint firstItem="aag-1i-M3K" firstAttribute="centerY" secondItem="Pxz-lT-UcE" secondAttribute="centerY" id="747-53-VYp"/>
+                            <constraint firstItem="aag-1i-M3K" firstAttribute="leading" secondItem="U2i-Op-yLI" secondAttribute="leading" constant="10" id="m6n-l1-Or2"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="U2i-Op-yLI"/>
                     </view>
                     <connections>
