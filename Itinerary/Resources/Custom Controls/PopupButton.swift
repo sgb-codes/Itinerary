@@ -1,0 +1,23 @@
+//
+//  PopupButton.swift
+//  Itinerary
+//
+//  Created by Simon Barrett on 07/07/2020.
+//  Copyright © 2020 Simon Barrett. All rights reserved.
+//
+
+import UIKit
+
+class PopupButton: UIButton {
+
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        
+        // Frame and Background
+        backgroundColor = Theme.tint
+        setTitleColor(.white, for: .normal)
+        layer.cornerRadius = 10
+        
+    }
+
+}

@@ -63,6 +63,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" image="plus" catalog="system"/>
+                                <connections>
+                                    <segue destination="wDE-qU-3Ak" kind="presentation" modalPresentationStyle="overFullScreen" id="i4X-Vf-gtd"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -82,6 +85,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yqx-OD-N5F" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-186.95652173913044" y="-104.46428571428571"/>
+        </scene>
+        <!--AddTripViewController-->
+        <scene sceneID="HGO-bd-9HH">
+            <objects>
+                <viewControllerPlaceholder storyboardName="AddTripViewController" id="wDE-qU-3Ak" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WRp-jG-yOT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="588" y="-104"/>
         </scene>
     </scenes>
     <resources>
