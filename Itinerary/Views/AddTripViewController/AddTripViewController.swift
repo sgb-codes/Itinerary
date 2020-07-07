@@ -107,6 +107,8 @@ class AddTripViewController: UIViewController {
                         self.present(alert, animated: true)
                     }
                     
+                @unknown default:
+                    print("Error: PHPhotoLibrary Authorization not handled, check Switch Cases in AddTripViewController (func addPhoto())")
                 }
             }
         }
