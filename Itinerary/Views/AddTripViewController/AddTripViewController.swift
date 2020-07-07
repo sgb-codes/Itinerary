@@ -66,7 +66,7 @@ class AddTripViewController: UIViewController {
         if let index = tripIndexToEdit {
             TripFunctions.updateTrip(at: index, title: newTripName, image: imageView.image)
         } else {
-        TripFunctions.createTrip(tripModel: TripModel(title: new≈TripName, image: imageView.image))
+        TripFunctions.createTrip(tripModel: TripModel(title: newTripName, image: imageView.image))
         }
         
         if let doneSaving = doneSaving {
