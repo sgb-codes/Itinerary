@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="x8P-E4-bfe">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -33,7 +33,7 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="374" height="140"/>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zhE-N6-M9i">
-                                                            <rect key="frame" x="134.5" y="43" width="105.5" height="54"/>
+                                                            <rect key="frame" x="134.33333333333334" y="43" width="105.33333333333334" height="54"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="45"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
@@ -87,10 +87,63 @@
                     </view>
                     <connections>
                         <outlet property="addButton" destination="YIE-fx-mAV" id="zC3-kW-gmi"/>
+                        <outlet property="helpView" destination="m3f-ge-F8s" id="T6e-tI-2fC"/>
                         <outlet property="tableView" destination="tfM-Ws-kQ2" id="OG7-7n-wyb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yqx-OD-N5F" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <visualEffectView opaque="NO" contentMode="scaleToFill" id="m3f-ge-F8s">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="HQs-XL-axa">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Bca-RJ-RXn">
+                                <rect key="frame" x="18" y="40" width="378" height="387.66666666666669"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe rows for more features!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Nb-FY-ioA">
+                                        <rect key="frame" x="0.0" y="0.0" width="378" height="71.666666666666671"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="deleteSwipe" translatesAutoresizingMaskIntoConstraints="NO" id="pli-z4-FOs">
+                                        <rect key="frame" x="0.0" y="79.666666666666686" width="378" height="150"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="150" id="rYR-vN-O89"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="editSwipe" translatesAutoresizingMaskIntoConstraints="NO" id="iG7-Wv-r0T">
+                                        <rect key="frame" x="0.0" y="237.66666666666669" width="378" height="150"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="150" id="0Ih-Bt-BYL"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Jz-TZ-mTo" customClass="PopupButton" customModule="Itinerary" customModuleProvider="target">
+                                <rect key="frame" x="18" y="734" width="378" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="Og3-wA-KLR"/>
+                                </constraints>
+                                <state key="normal" title="Close"/>
+                                <connections>
+                                    <action selector="closeHelpView:" destination="x8P-E4-bfe" eventType="touchUpInside" id="LLU-0t-xc5"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Bca-RJ-RXn" secondAttribute="trailing" constant="18" id="4dI-8W-kRa"/>
+                            <constraint firstItem="Bca-RJ-RXn" firstAttribute="top" secondItem="HQs-XL-axa" secondAttribute="top" constant="40" id="7mh-lB-LUc"/>
+                            <constraint firstItem="Bca-RJ-RXn" firstAttribute="leading" secondItem="HQs-XL-axa" secondAttribute="leading" constant="18" id="YR1-fl-aAj"/>
+                            <constraint firstAttribute="trailing" secondItem="0Jz-TZ-mTo" secondAttribute="trailing" constant="18" id="Zgf-dv-pib"/>
+                            <constraint firstItem="0Jz-TZ-mTo" firstAttribute="leading" secondItem="HQs-XL-axa" secondAttribute="leading" constant="18" id="ar7-0x-8Ia"/>
+                            <constraint firstAttribute="bottom" secondItem="0Jz-TZ-mTo" secondAttribute="bottom" constant="40" id="v6P-Py-Wdf"/>
+                        </constraints>
+                    </view>
+                    <blurEffect style="dark"/>
+                </visualEffectView>
             </objects>
             <point key="canvasLocation" x="-186.95652173913044" y="-104.46428571428571"/>
         </scene>
@@ -104,6 +157,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="deleteSwipe" width="672" height="256"/>
+        <image name="editSwipe" width="664" height="258"/>
         <image name="plus" catalog="system" width="128" height="113"/>
     </resources>
 </document>

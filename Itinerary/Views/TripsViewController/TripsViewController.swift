@@ -14,8 +14,11 @@ class TripsViewController: UIViewController{
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var addButton: UIButton!
+    @IBOutlet var helpView: UIVisualEffectView!
     
     var tripIndexToEdit: Int?
+    var seenHelpView = "seenHelpView"
+    var toAddTripSegue = "toAddTripSegue"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,10 +28,20 @@ class TripsViewController: UIViewController{
         tableView.delegate = self
         
         // Load Trip Data from Database
-        TripFunctions.readTrip { [weak self] in
-            self?.tableView.reloadData()
+        TripFunctions.readTrip { [unowned self] in
+            self.tableView.reloadData()
+            
+        // Check if there is at least one row showing in ViewController
+            if Data.tripModels.count >= 1 {
+                // Check user has not seen Help Screen
+                if UserDefaults.standard.bool(forKey: self.seenHelpView) == false {
+                    // Show user Help Screen
+                    self.view.addSubview(self.helpView)
+                    self.helpView.frame = self.view.frame
+                }
+            }
         }
-        
+
         // Change Background colour and Style Floating Action button
         view.backgroundColor = Theme.background
         addButton.createFloatingActionButton()
@@ -36,12 +49,25 @@ class TripsViewController: UIViewController{
     
     // User presses Floating Action Button or Edit Button and is shown AddTripViewController
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toAddTripSegue" {
+        if segue.identifier == toAddTripSegue {
             let popup = segue.destination as! AddTripViewController
             popup.tripIndexToEdit = self.tripIndexToEdit
             popup.doneSaving = { [weak self] in
                 self?.tableView.reloadData()
             }
+            tripIndexToEdit = nil
+        }
+    }
+    
+    // Button to Close Help Screen
+    @IBAction func closeHelpView(_ sender: PopupButton) {
+        // Animate Help Screen Closing by slowly fading
+        UIView.animate(withDuration: 0.5, animations: {
+            self.helpView.alpha = 0
+        }) { (success) in
+            self.helpView.removeFromSuperview()
+            // Record that User has seen HelpScreen
+            UserDefaults.standard.set(true, forKey: self.seenHelpView)
         }
     }
 }
@@ -100,8 +126,8 @@ extension TripsViewController: UITableViewDataSource, UITableViewDelegate {
         // Add edit button to left hand side of cell
         let edit = UIContextualAction(style: .normal, title: "Edit") { (contextualAction, view, actionPerformed: @escaping (Bool) -> Void) in
             self.tripIndexToEdit = indexPath.row
-            // Present Add TripViewController customised to Edit Screenç
-            self.performSegue(withIdentifier: "toAddTripSegue", sender: nil)
+            // Present Add TripViewController customised to Edit Screen
+            self.performSegue(withIdentifier: self.toAddTripSegue, sender: nil)
             actionPerformed(true)
         }
         
