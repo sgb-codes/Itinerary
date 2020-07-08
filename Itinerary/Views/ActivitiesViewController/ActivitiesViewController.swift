@@ -17,11 +17,14 @@ class ActivitiesViewController: UIViewController {
     
     var tripId: UUID!
     var tripModel: TripModel?
+    var sectionHeaderHeight: CGFloat = 0.0
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Attach TableView to ViewController
         tableView.dataSource = self
+        tableView.delegate = self
        
 
         // Load Trip from Unique ID
@@ -37,35 +40,46 @@ class ActivitiesViewController: UIViewController {
             self.tableView.reloadData()
         }
         
+        // Set Height of Section Header Cell
+        sectionHeaderHeight = tableView.dequeueReusableCell(withIdentifier: Constants.headerCell)?.contentView.bounds.height ?? 0
     }
     
 }
 
-extension ActivitiesViewController: UITableViewDataSource {
+extension ActivitiesViewController: UITableViewDataSource, UITableViewDelegate {
     
+    // Number of Sections in table equal to Amount of dayModels in Array
     func numberOfSections(in tableView: UITableView) -> Int {
         return tripModel?.dayModels.count ?? 0
     }
     
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        let title = tripModel?.dayModels[section].title ?? ""
-        let subtitle = tripModel?.dayModels[section].subtitle ?? ""
-        return "\(title) - \(subtitle)"
+    // Set Section Header to be of Type HeaderViewCell
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let dayModel = tripModel?.dayModels[section]
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.headerCell) as! HeaderTableViewCell
+        cell.setup(model: dayModel!)
+        
+        return cell.contentView
     }
     
+    // Set Height of Section Header Cell
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+
+        return sectionHeaderHeight
+    }
+
+    // Set Number of Rows Per Section
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tripModel?.dayModels[section].activityModels.count ?? 0
     }
     
+    // Set Data for Each TableViewCell
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCell(withIdentifier: "cell")
+        var model = tripModel?.dayModels[indexPath.section].activityModels[indexPath.row]
+        var cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! ActivityTableViewCell
         
-        if cell == nil {
-            cell = UITableViewCell(style: .default, reuseIdentifier: "cell")
-        }
-        
-        cell?.textLabel?.text = tripModel?.dayModels[indexPath.section].activityModels[indexPath.row].title
-        
-        return cell!
+        cell.setup(model: model!)
+        return cell
     }
 }

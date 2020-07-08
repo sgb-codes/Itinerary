@@ -17,8 +17,6 @@ class TripsViewController: UIViewController{
     @IBOutlet var helpView: UIVisualEffectView!
     
     var tripIndexToEdit: Int?
-    var seenHelpView = "seenHelpView"
-    var toAddTripSegue = "toAddTripSegue"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +32,7 @@ class TripsViewController: UIViewController{
         // Check if there is at least one row showing in ViewController
             if Data.tripModels.count >= 1 {
                 // Check user has not seen Help Screen
-                if UserDefaults.standard.bool(forKey: self.seenHelpView) == false {
+                if UserDefaults.standard.bool(forKey: Constants.seenHelpView) == false {
                     // Show user Help Screen
                     self.view.addSubview(self.helpView)
                     self.helpView.frame = self.view.frame
@@ -49,7 +47,7 @@ class TripsViewController: UIViewController{
     
     // User presses Floating Action Button or Edit Button and is shown AddTripViewController
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == toAddTripSegue {
+        if segue.identifier == Constants.toAddTripSegue {
             let popup = segue.destination as! AddTripViewController
             popup.tripIndexToEdit = self.tripIndexToEdit
             popup.doneSaving = { [weak self] in
@@ -67,7 +65,7 @@ class TripsViewController: UIViewController{
         }) { (success) in
             self.helpView.removeFromSuperview()
             // Record that User has seen HelpScreen
-            UserDefaults.standard.set(true, forKey: self.seenHelpView)
+            UserDefaults.standard.set(true, forKey: Constants.seenHelpView)
         }
     }
 }
@@ -81,7 +79,7 @@ extension TripsViewController: UITableViewDataSource, UITableViewDelegate {
     
     // Create Custom Cells and Add Data to cells
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! TripsTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cell) as! TripsTableViewCell
         
         cell.setup(tripModel: Data.tripModels[indexPath.row])
         
@@ -142,7 +140,7 @@ extension TripsViewController: UITableViewDataSource, UITableViewDelegate {
         let edit = UIContextualAction(style: .normal, title: "Edit") { (contextualAction, view, actionPerformed: @escaping (Bool) -> Void) in
             self.tripIndexToEdit = indexPath.row
             // Present Add TripViewController customised to Edit Screen
-            self.performSegue(withIdentifier: self.toAddTripSegue, sender: nil)
+            self.performSegue(withIdentifier: Constants.toAddTripSegue, sender: nil)
             actionPerformed(true)
         }
         
