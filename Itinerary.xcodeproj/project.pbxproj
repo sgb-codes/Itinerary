@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A2FEF3624B6104F00929ABC /* DayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2FEF3524B6104F00929ABC /* DayModel.swift */; };
+		2A2FEF3924B6110E00929ABC /* ActivityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2FEF3824B6110E00929ABC /* ActivityModel.swift */; };
+		2A2FEF3B24B611BF00929ABC /* ActivityTypeEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2FEF3A24B611BF00929ABC /* ActivityTypeEnum.swift */; };
+		2A2FEF3D24B6120F00929ABC /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2FEF3C24B6120F00929ABC /* MockData.swift */; };
+		2A2FEF4224B615C600929ABC /* ActivitiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2FEF4124B615C600929ABC /* ActivitiesViewController.swift */; };
+		2A2FEF4424B61C3400929ABC /* ActivitiesViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A2FEF4324B61C3400929ABC /* ActivitiesViewController.storyboard */; };
 		2AA8CAB324B37DAD00B30A98 /* TripModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA8CAB224B37DAD00B30A98 /* TripModel.swift */; };
 		2AA8CAB524B37DB800B30A98 /* TripFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA8CAB424B37DB800B30A98 /* TripFunctions.swift */; };
 		2AA8CAB724B37FCA00B30A98 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA8CAB624B37FCA00B30A98 /* Data.swift */; };
@@ -29,6 +35,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2A2FEF3524B6104F00929ABC /* DayModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayModel.swift; sourceTree = "<group>"; };
+		2A2FEF3824B6110E00929ABC /* ActivityModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityModel.swift; sourceTree = "<group>"; };
+		2A2FEF3A24B611BF00929ABC /* ActivityTypeEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityTypeEnum.swift; sourceTree = "<group>"; };
+		2A2FEF3C24B6120F00929ABC /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
+		2A2FEF4124B615C600929ABC /* ActivitiesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitiesViewController.swift; sourceTree = "<group>"; };
+		2A2FEF4324B61C3400929ABC /* ActivitiesViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ActivitiesViewController.storyboard; sourceTree = "<group>"; };
 		2AA8CAB224B37DAD00B30A98 /* TripModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripModel.swift; sourceTree = "<group>"; };
 		2AA8CAB424B37DB800B30A98 /* TripFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripFunctions.swift; sourceTree = "<group>"; };
 		2AA8CAB624B37FCA00B30A98 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
@@ -63,11 +75,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2A2FEF3424B6103900929ABC /* Day */ = {
+			isa = PBXGroup;
+			children = (
+				2A2FEF3524B6104F00929ABC /* DayModel.swift */,
+			);
+			path = Day;
+			sourceTree = "<group>";
+		};
+		2A2FEF3724B610DC00929ABC /* Activity */ = {
+			isa = PBXGroup;
+			children = (
+				2A2FEF3824B6110E00929ABC /* ActivityModel.swift */,
+				2A2FEF3A24B611BF00929ABC /* ActivityTypeEnum.swift */,
+			);
+			path = Activity;
+			sourceTree = "<group>";
+		};
+		2A2FEF4024B6158500929ABC /* ActivitiesViewController */ = {
+			isa = PBXGroup;
+			children = (
+				2A2FEF4324B61C3400929ABC /* ActivitiesViewController.storyboard */,
+				2A2FEF4124B615C600929ABC /* ActivitiesViewController.swift */,
+			);
+			path = ActivitiesViewController;
+			sourceTree = "<group>";
+		};
 		2AA8CAB024B37D8800B30A98 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				2AA8CAB624B37FCA00B30A98 /* Data.swift */,
+				2A2FEF3C24B6120F00929ABC /* MockData.swift */,
 				2AA8CAB124B37D8F00B30A98 /* Trip */,
+				2A2FEF3424B6103900929ABC /* Day */,
+				2A2FEF3724B610DC00929ABC /* Activity */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -96,6 +137,7 @@
 			children = (
 				2AA8CAD124B4744100B30A98 /* AddTripViewController */,
 				2AA8CAB824B383D100B30A98 /* TripsViewController */,
+				2A2FEF4024B6158500929ABC /* ActivitiesViewController */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -231,6 +273,7 @@
 				2AC144F724B4857E0048F07A /* AddTripViewController.storyboard in Resources */,
 				2AEC6FB324AFA9F30015E092 /* LaunchScreen.storyboard in Resources */,
 				2AA8CACC24B3A40600B30A98 /* Colours.xcassets in Resources */,
+				2A2FEF4424B61C3400929ABC /* ActivitiesViewController.storyboard in Resources */,
 				2AA8CABC24B3841200B30A98 /* TripsViewController.storyboard in Resources */,
 				2AA8CACA24B3A1FC00B30A98 /* FugazOne-Regular.ttf in Resources */,
 				2AEC6FB024AFA9F30015E092 /* Assets.xcassets in Resources */,
@@ -246,13 +289,18 @@
 			files = (
 				2AA8CAD824B47A9300B30A98 /* PopupButton.swift in Sources */,
 				2AA8CAC824B3A11D00B30A98 /* Theme.swift in Sources */,
+				2A2FEF3624B6104F00929ABC /* DayModel.swift in Sources */,
+				2A2FEF3D24B6120F00929ABC /* MockData.swift in Sources */,
 				2AA8CACE24B464E200B30A98 /* UIAddTripButtonExtension.swift in Sources */,
 				2AEC6FA724AFA9F00015E092 /* AppDelegate.swift in Sources */,
+				2A2FEF3B24B611BF00929ABC /* ActivityTypeEnum.swift in Sources */,
+				2A2FEF3924B6110E00929ABC /* ActivityModel.swift in Sources */,
 				2AA8CAB724B37FCA00B30A98 /* Data.swift in Sources */,
 				2AA8CAC524B39F1F00B30A98 /* UIViewExtensions.swift in Sources */,
 				2AA8CAD624B478DA00B30A98 /* PopupUIView.swift in Sources */,
 				2AEC6FA924AFA9F00015E092 /* SceneDelegate.swift in Sources */,
 				2AA8CABF24B3847D00B30A98 /* TripsViewController.swift in Sources */,
+				2A2FEF4224B615C600929ABC /* ActivitiesViewController.swift in Sources */,
 				2AA8CAD324B4746900B30A98 /* AddTripViewController.swift in Sources */,
 				2AA8CAB524B37DB800B30A98 /* TripFunctions.swift in Sources */,
 				2AA8CAC124B3903900B30A98 /* TripsTableViewCell.swift in Sources */,

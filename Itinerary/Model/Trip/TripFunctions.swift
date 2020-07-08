@@ -19,15 +19,24 @@ class TripFunctions {
         // Load trips on background thread
         DispatchQueue.global(qos: .userInteractive).async {
             if Data.tripModels.count == 0 {
-                // Practice Data
-                Data.tripModels.append(TripModel(title: "Trip to Bali!"))
-                Data.tripModels.append(TripModel(title: "Mexico"))
-                Data.tripModels.append(TripModel(title: "Russian Trip"))
+                Data.tripModels = MockData.createMockTripModelData()
             }
         }
         // Go back to main thread
         DispatchQueue.main.async {
             completion()
+        }
+    }
+    
+    // Read Trip by ID from Database and Populate TripModel
+    static func readTrip(by id: UUID, completion: @escaping (TripModel?) -> ()) {
+        DispatchQueue.global(qos: .userInitiated).async {
+            // Returns the first element of the array which contains the unique ID
+            let trip = Data.tripModels.first(where: { $0.id == id })
+            
+            DispatchQueue.main.async {
+                completion(trip)
+            }
         }
     }
     

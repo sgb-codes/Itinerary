@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="x8P-E4-bfe">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jU0-4i-Xij">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -16,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tfM-Ws-kQ2">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="160" id="U1T-ee-KfR" customClass="TripsTableViewCell" customModule="Itinerary" customModuleProvider="target">
@@ -62,6 +62,7 @@
                                             <outlet property="cardView" destination="ena-JJ-vu9" id="QWt-Bc-5Nz"/>
                                             <outlet property="titleLabel" destination="zhE-N6-M9i" id="twK-1X-JsX"/>
                                             <outlet property="tripImageView" destination="L1V-bt-sca" id="Hiw-SF-wdX"/>
+                                            <segue destination="Rw6-po-jvi" kind="show" id="Xf0-D4-OPt"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -85,6 +86,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="x3E-8g-MKy"/>
                     </view>
+                    <navigationItem key="navigationItem" id="VVs-rY-Cj4"/>
                     <connections>
                         <outlet property="addButton" destination="YIE-fx-mAV" id="zC3-kW-gmi"/>
                         <outlet property="helpView" destination="m3f-ge-F8s" id="T6e-tI-2fC"/>
@@ -145,7 +147,17 @@
                     <blurEffect style="dark"/>
                 </visualEffectView>
             </objects>
-            <point key="canvasLocation" x="-186.95652173913044" y="-104.46428571428571"/>
+            <point key="canvasLocation" x="723.1884057971015" y="-104.46428571428571"/>
+        </scene>
+        <!--ActivitiesViewController-->
+        <scene sceneID="fMN-ML-Pba">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ActivitiesViewController" id="Rw6-po-jvi" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="wmw-Ek-mOr"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gGq-Zd-EcK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1464.4927536231885" y="-184.15178571428569"/>
         </scene>
         <!--AddTripViewController-->
         <scene sceneID="JC7-xg-d0r">
@@ -153,7 +165,25 @@
                 <viewControllerPlaceholder storyboardName="AddTripViewController" id="VEy-sm-rZq" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Uv-PQ-z8i" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="570" y="-103"/>
+            <point key="canvasLocation" x="1479.7101449275362" y="-103.125"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="jTG-iu-TAo">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jU0-4i-Xij" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="dnr-XE-g1e">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="x8P-E4-bfe" kind="relationship" relationship="rootViewController" id="sfi-kx-8mL"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tUJ-eE-KE6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-186.95652173913044" y="-104.46428571428571"/>
         </scene>
     </scenes>
     <resources>

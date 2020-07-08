@@ -9,7 +9,6 @@
 import Foundation
 
 class Data {
-    
     // Array of All trips
     static var tripModels = [TripModel]()
 }

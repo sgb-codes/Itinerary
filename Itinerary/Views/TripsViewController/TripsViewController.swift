@@ -93,6 +93,21 @@ extension TripsViewController: UITableViewDataSource, UITableViewDelegate {
         return 160
     }
     
+    // Select Cell from Table View and Segue to ActivitiesViewController
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // Get the selected cell
+        let trip = Data.tripModels[indexPath.row]
+        
+        // Instantiate an ActivitiesViewController and segue to it using the correct UUID
+        let storyboard = UIStoryboard(name: String(describing: ActivitiesViewController.self), bundle: nil)
+        let vc = storyboard.instantiateInitialViewController() as! ActivitiesViewController
+        vc.tripId = trip.id
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    
+    //MARK: - Add Swipe Functions to Cell UI
+    
     // Add Delete Swipe function to Cell when swiped left
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         // Add Delete button to right hand side of Cell
