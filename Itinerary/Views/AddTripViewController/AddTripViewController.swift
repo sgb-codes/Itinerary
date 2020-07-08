@@ -96,6 +96,10 @@ class AddTripViewController: UIViewController {
     fileprivate func presentPhotoPickerController() {
         DispatchQueue.main.async {
             let myPickerController = UIImagePickerController()
+            
+            // Allows user to edit the image thats picked
+            myPickerController.allowsEditing = true
+
             myPickerController.delegate = self
             myPickerController.sourceType = .photoLibrary
             self.present(myPickerController, animated: true)
@@ -166,7 +170,12 @@ extension AddTripViewController: UIImagePickerControllerDelegate, UINavigationCo
     
     // User has picked a Photo from PhotoPicker, Set photo as Cureent ViewController and TripView Controller Cell background, Update TripModel
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+        
+        // Check if user has edited the Image
+        if let image = info[.editedImage] as? UIImage {
+            self.imageView.image = image
+            // If not then use original Image
+        } else if let image = info[.originalImage] as? UIImage {
             self.imageView.image = image
         }
         
