@@ -15,7 +15,7 @@ class ActivitiesViewController: UIViewController {
     @IBOutlet weak var backgroundImageView: UIImageView!
     @IBOutlet weak var tableView: UITableView!
     
-    var tripId: UUID!
+    var tripId: String = ""
     var tripModel: TripModel?
 
     override func viewDidLoad() {
