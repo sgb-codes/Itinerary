@@ -31,7 +31,6 @@ class ActivitiesViewController: UIViewController {
             self.tripModel = model
             // Check there is data in the TripModel
             guard let model = model else { return }
-            
             // Load Data into ViewController
             self.title = model.title
             self.backgroundImageView.image = model.image
