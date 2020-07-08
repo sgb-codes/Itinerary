@@ -10,13 +10,13 @@ import UIKit
 
 // Struct to hold Trip Information, Unique ID to be used to fetch from database
 struct TripModel {
-    let id: String
+    let id: UUID
     var title: String
     var image: UIImage?
     var dayModels = [DayModel]()
     
     init(title: String, image: UIImage? = nil, dayModels: [DayModel]? = nil) {
-        id = UUID().uuidString
+        id = UUID()
         self.title = title
         self.image = image
         

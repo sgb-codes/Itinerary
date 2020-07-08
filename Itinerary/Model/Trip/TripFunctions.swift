@@ -29,7 +29,7 @@ class TripFunctions {
     }
     
     // Read Trip by ID from Database and Populate TripModel
-    static func readTrip(by id: String, completion: @escaping (TripModel?) -> ()) {
+    static func readTrip(by id: UUID, completion: @escaping (TripModel?) -> ()) {
         DispatchQueue.global(qos: .userInitiated).async {
             // Returns the first element of the array which contains the unique ID
             let trip = Data.tripModels.first(where: { $0.id == id })
