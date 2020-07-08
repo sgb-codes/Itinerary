@@ -11,6 +11,8 @@ import Photos
 
 class AddTripViewController: UIViewController {
     
+    //MARK: - Global Variables and IBOutlets
+    
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var tripTextField: UITextField!
     @IBOutlet weak var cancelButton: UIButton!
@@ -26,6 +28,7 @@ class AddTripViewController: UIViewController {
         
         //MARK: - Additional UI Setup
         
+        // Setup: Title Label, Camera Colour, ViewController Corners
         titleLabel.font = UIFont(name: Theme.mainFontName, size: 26)
         cameraButton.imageView?.tintColor = .red
         imageView.layer.cornerRadius = 10
@@ -36,6 +39,7 @@ class AddTripViewController: UIViewController {
         titleLabel.layer.shadowOffset = CGSize.zero
         titleLabel.layer.shadowRadius = 5
         
+        // When Edit button Tapped, change ViewController Title and Load Trip details into ViewController
         if let index = tripIndexToEdit {
             let trip = Data.tripModels[index]
             titleLabel.text = "Edit Trip"
@@ -44,37 +48,51 @@ class AddTripViewController: UIViewController {
         }
     }
     
+    // Called when User presses Cancel Button
     @IBAction func cancel(_ sender: UIButton) {
         dismiss(animated: true)
         
     }
     
+    // Called when User presses Save Button
     @IBAction func save(_ sender: UIButton) {
         
+        // Check Textfield is not nil and assign text to variable
         guard tripTextField.text != "", let newTripName = tripTextField.text else {
+            
+            // If text field is nil, add a warning sign to right side of textfield
+            // Create UIView to present image in
             let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
+            
+            // Configure SFSymbol and Add it to Image View
             let configuration = UIImage.SymbolConfiguration(pointSize: 25, weight: .bold, scale: .default)
             imageView.image = UIImage(systemName: "exclamationmark.triangle", withConfiguration: configuration)
             imageView.contentMode = .scaleAspectFit
             imageView.tintColor = .red
             
+            // Add ImageView with Image to Text Field
             tripTextField.rightView = imageView
             tripTextField.rightViewMode = .always
             return
         }
         
+        // If Editing Trip then update TripModel
         if let index = tripIndexToEdit {
             TripFunctions.updateTrip(at: index, title: newTripName, image: imageView.image)
-        } else {
+        }
+        // If adding a new trip then Create new trip in TripModel
+        else {
         TripFunctions.createTrip(tripModel: TripModel(title: newTripName, image: imageView.image))
         }
         
+        // Check Data Saved and Dismiss ViewController
         if let doneSaving = doneSaving {
             doneSaving()
         }
         dismiss(animated: true)
     }
     
+    // Helper Function that creates Photo Picker object and Displays it
     fileprivate func presentPhotoPickerController() {
         DispatchQueue.main.async {
             let myPickerController = UIImagePickerController()
@@ -84,40 +102,57 @@ class AddTripViewController: UIViewController {
         }
     }
     
+    // Add Photo button pressed
     @IBAction func addPhoto(_ sender: UIButton) {
+        
+        //Switch statement to Confirm what Authorisation App has for the Photo Picker
+        /* (If Creating this feature for another app make sure to add the Request to plist: Privacy - Photo Library Usage Description, with a suitable message ) */
         PHPhotoLibrary.requestAuthorization { (status) in
             switch status {
+                // User has already allowed App Access
             case .authorized:
                 self.presentPhotoPickerController()
                 
+                // App unsure of Status
             case .notDetermined:
                 if status == PHAuthorizationStatus.authorized {
                     self.presentPhotoPickerController()
                 }
                 
+                // User has set Restrictions on their phone, User should know how to change this if they want
             case .restricted:
+                // Create alert Explaining Restricted Status
                 let alert = UIAlertController(title: "Photo Library Restricted", message: "Photo library access is restricted and cannot be accessed.", preferredStyle: .alert)
+                // Create Ok button and add to alert
                 let okAction = UIAlertAction(title: "Ok", style: .default)
                 alert.addAction(okAction)
+                // Show alert to user
                 self.present(alert, animated: true)
                 
+                // User has previously denied App request to access photos
             case .denied:
-                print("Denied")
+                // Create alert Explaining User has previously Denied App access to Photos
                 let alert = UIAlertController(title: "Photo Library Denied", message: "Photo library access was previosuly denied. Please update your Settings if you wish to change this.", preferredStyle: .alert)
+                // Create Alert Button which sends User to Settings menu to change Authorisation
                 let goToSettingsAction = UIAlertAction(title: "Go to Settings", style: .default) { (action) in
                     DispatchQueue.main.async {
+                        // Send user to Settings Menu
                         let url = URL(string: UIApplication.openSettingsURLString)!
                         UIApplication.shared.open(url, options: [:])
                         
                     }
                 }
+                // Create cancel button
                 let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+                
+                // Add buttons to Alert and Present Alert
                 alert.addAction(cancelAction)
                 alert.addAction(goToSettingsAction)
                 DispatchQueue.main.async {
                     self.present(alert, animated: true)
                 }
                 
+                // Default, Needed incase Authorization cases change in future
             @unknown default:
                 print("Error: PHPhotoLibrary Authorization not handled, check Switch Cases in AddTripViewController (func addPhoto())")
             }
@@ -129,6 +164,7 @@ class AddTripViewController: UIViewController {
 
 extension AddTripViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
+    // User has picked a Photo from PhotoPicker, Set photo as Cureent ViewController and TripView Controller Cell background, Update TripModel
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             self.imageView.image = image
@@ -137,6 +173,7 @@ extension AddTripViewController: UIImagePickerControllerDelegate, UINavigationCo
         dismiss(animated: true)
     }
     
+    // User has exited PhotoPicker without choosing a Photo
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true)
     }

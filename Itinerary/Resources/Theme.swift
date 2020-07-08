@@ -9,6 +9,8 @@
 import UIKit
 
 class Theme {
+    
+    // Class to hold Constants for Theme Colours and Fonts
     static let mainFontName = "FugazOne-Regular"
     static let accent = UIColor(named: "Accent")
     static let background = UIColor(named: "Background")

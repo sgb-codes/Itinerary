@@ -8,6 +8,7 @@
 
 import UIKit
 
+// Class to hold Trip Information, Unique ID to be used to fetch from database
 class TripModel {
     let id: UUID
     var title: String

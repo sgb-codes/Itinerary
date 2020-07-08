@@ -9,28 +9,35 @@
 import UIKit
 
 class TripFunctions {
+    // Create a New Trip and Add to the Data Model
     static func createTrip(tripModel: TripModel) {
         Data.tripModels.append(tripModel)
     }
     
+    // Read Trips from Database and Populate tripModels
     static func readTrip(completion: @escaping () -> ()) {
+        // Load trips on background thread
         DispatchQueue.global(qos: .userInteractive).async {
             if Data.tripModels.count == 0 {
+                // Practice Data
                 Data.tripModels.append(TripModel(title: "Trip to Bali!"))
                 Data.tripModels.append(TripModel(title: "Mexico"))
                 Data.tripModels.append(TripModel(title: "Russian Trip"))
             }
         }
+        // Go back to main thread
         DispatchQueue.main.async {
             completion()
         }
     }
     
+    // Update trip models after editing
     static func updateTrip(at index: Int, title: String, image: UIImage? = nil) {
         Data.tripModels[index].title = title
         Data.tripModels[index].image = image
     }
     
+    // Delete trip model
     static func deleteTrip(index: Int) {
         Data.tripModels.remove(at: index)
     }

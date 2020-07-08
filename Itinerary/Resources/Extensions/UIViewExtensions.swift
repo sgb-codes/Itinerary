@@ -9,9 +9,10 @@
 import UIKit
 
 extension UIView {
+     // Styling for TripsViewController Cells
     func addShadowAndRoundedCorners() {
-        
-        // Create Drop Shadow for Cell
+       
+        // Create Drop Shadow
         layer.shadowOpacity = 1
         layer.shadowOffset = CGSize.zero
         layer.shadowColor = UIColor.darkGray.cgColor

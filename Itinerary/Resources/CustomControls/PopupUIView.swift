@@ -10,10 +10,11 @@ import UIKit
 
 class PopupUIView: UIView {
 
+    // Sytling for AddTrip Popup
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
-        // Create Drop Shadow for Cell
+        // Create Drop Shadow
         layer.shadowOpacity = 1
         layer.shadowOffset = CGSize.zero
         layer.shadowColor = UIColor.darkGray.cgColor

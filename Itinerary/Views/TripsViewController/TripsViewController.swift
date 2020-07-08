@@ -10,6 +10,8 @@ import UIKit
 
 class TripsViewController: UIViewController{
     
+    //MARK: - Global Variables and IBOutlets
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var addButton: UIButton!
     
@@ -18,17 +20,21 @@ class TripsViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Set View Controller as TableView Delegate and Datasource
         tableView.dataSource = self
         tableView.delegate = self
         
+        // Load Trip Data from Database
         TripFunctions.readTrip { [weak self] in
             self?.tableView.reloadData()
         }
         
+        // Change Background colour and Style Floating Action button
         view.backgroundColor = Theme.background
         addButton.createFloatingActionButton()
     }
     
+    // User presses Floating Action Button or Edit Button and is shown AddTripViewController
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toAddTripSegue" {
             let popup = segue.destination as! AddTripViewController
@@ -42,10 +48,12 @@ class TripsViewController: UIViewController{
 
 extension TripsViewController: UITableViewDataSource, UITableViewDelegate {
     
+    // Amount of Cells Shown to User
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return Data.tripModels.count
     }
     
+    // Create Custom Cells and Add Data to cells
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! TripsTableViewCell
         
@@ -54,37 +62,50 @@ extension TripsViewController: UITableViewDataSource, UITableViewDelegate {
         return cell
     }
     
+    // Custom Height for Cells
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 160
     }
     
+    // Add Delete Swipe function to Cell when swiped left
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        // Add Delete button to right hand side of Cell
         let delete = UIContextualAction(style: .destructive, title: "Delete") { (contextualAction, view, actionPerformed: @escaping (Bool) -> Void) in
             
+            // If users presses Delete create Alert to Confirm User Decision
             let alert = UIAlertController(title: "Delete Trip", message: "Are you sure you want to delete this trip?", preferredStyle: .alert)
+            // Create Cancel Button for Alert
             alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (alertAction) in
                 actionPerformed(false)
             }))
+            // Create Delete Button For Alert
             alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { (alertAction) in
-                // Perform Delete
+                // Delete Trip from Database and Delete Cell
                 TripFunctions.deleteTrip(index: indexPath.row)
                 tableView.deleteRows(at: [indexPath], with: .automatic)
                 actionPerformed(true)
             }))
             
+            // Present Alert to User
             self.present(alert, animated: true)
         }
         
+        // Add Bin Image to Delete Button
         delete.image = UIImage(systemName: "bin.xmark")
         return UISwipeActionsConfiguration(actions: [delete])
     }
     
+    // Add Edit Swipe function to Cell when swiped right
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        // Add edit button to left hand side of cell
         let edit = UIContextualAction(style: .normal, title: "Edit") { (contextualAction, view, actionPerformed: @escaping (Bool) -> Void) in
             self.tripIndexToEdit = indexPath.row
+            // Present Add TripViewController customised to Edit Screenç
             self.performSegue(withIdentifier: "toAddTripSegue", sender: nil)
             actionPerformed(true)
         }
+        
+        // Add image to Edit Button and Change Background Colour
         edit.image = UIImage(systemName: "pencil")
         edit.backgroundColor = UIColor(named: "Edit")
         return UISwipeActionsConfiguration(actions: [edit])
