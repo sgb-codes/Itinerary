@@ -84,8 +84,13 @@ class ActivitiesViewController: UIViewController {
     
     // Called when user clicks on Day in action sheet
     func handleAddDay(action: UIAlertAction) {
+        
         // Segue to AddDayViewController
         let vc = AddDayViewController.getInstance() as! AddDayViewController
+        
+        // AddDayViewController can access the data in our model
+        vc.tripModel = tripModel
+        
         // Get refernece to Trip which will be shown
         vc.tripIndex = Data.tripModels.firstIndex(where: { (tripModel) -> Bool in
             tripModel.id == tripId

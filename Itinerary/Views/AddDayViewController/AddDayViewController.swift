@@ -20,6 +20,7 @@ class AddDayViewController: UIViewController {
     
     var doneSaving: ((DayModel) -> ())?
     var tripIndex: Int!
+    var tripModel: TripModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,14 +31,14 @@ class AddDayViewController: UIViewController {
         titleLabel.font = UIFont(name: Theme.mainFontName, size: 26)
         
         self.hideKeyboardWhenTappedAround()
-
         
-//        // When Edit button Tapped, change ViewController Title and Load Trip details into ViewController
-//        if let index = tripIndexToEdit {
-//            let trip = Data.tripModels[index]
-//            titleLabel.text = "Edit Trip"
-//            titleTextField.text = trip.title
-//        }
+        
+        //        // When Edit button Tapped, change ViewController Title and Load Trip details into ViewController
+        //        if let index = tripIndexToEdit {
+        //            let trip = Data.tripModels[index]
+        //            titleLabel.text = "Edit Trip"
+        //            titleTextField.text = trip.title
+        //        }
     }
     
     // Called when User presses Cancel Button
@@ -49,8 +50,17 @@ class AddDayViewController: UIViewController {
     // Called when User presses Save Button
     @IBAction func save(_ sender: UIButton) {
         
-        // Check Textfield is not nil and assign text to variable
-//        guard titleTextField.hasValue, let newTitle = titleTextField.text else { return }
+        // Check Date does not already exist
+        if alreadyExists(datePicker.date) {
+            
+            // If date already exists show Alert
+            let alert = UIAlertController(title: "Day Already Exists", message: "Choose Another Date", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "Ok", style: .cancel)
+            alert.addAction(okAction)
+            present(alert, animated: true)
+            return
+        }
+        
         
         // Add Day to the Database
         let dayModel = DayModel(title: datePicker.date, subtitle: subtitleTextField.text ?? "", data: nil)
@@ -63,9 +73,16 @@ class AddDayViewController: UIViewController {
         }
         dismiss(animated: true)
     }
-
+    
     // Text Field Exits when Done button is pressed
     @IBAction func done(_ sender: UITextField) {
         sender.resignFirstResponder()
+    }
+    
+    func alreadyExists(_ date: Date) -> Bool {        
+        if tripModel.dayModels.contains(where: { $0.title.mediumDate() == date.mediumDate() }) {
+            return true
+        }
+        return false
     }
 }
