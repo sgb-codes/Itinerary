@@ -32,13 +32,6 @@ class AddDayViewController: UIViewController {
         
         self.hideKeyboardWhenTappedAround()
         
-        
-        //        // When Edit button Tapped, change ViewController Title and Load Trip details into ViewController
-        //        if let index = tripIndexToEdit {
-        //            let trip = Data.tripModels[index]
-        //            titleLabel.text = "Edit Trip"
-        //            titleTextField.text = trip.title
-        //        }
     }
     
     // Called when User presses Cancel Button

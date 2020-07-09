@@ -9,7 +9,8 @@
 import Foundation
 
 // Enum to show different types of activities that can be selected
-enum ActivityType {
+// DO NOT MOVE THESE AROUND
+enum ActivityType: Int {
     case auto
     case excursion
     case flight

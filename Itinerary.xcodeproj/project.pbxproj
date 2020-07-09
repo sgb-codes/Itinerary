@@ -37,6 +37,8 @@
 		2AE3FD6F24B72124003F2651 /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE3FD6E24B72124003F2651 /* UITextFieldExtension.swift */; };
 		2AE3FD7124B725E4003F2651 /* DayFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE3FD7024B725E4003F2651 /* DayFunctions.swift */; };
 		2AE3FD7324B733F3003F2651 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE3FD7224B733F3003F2651 /* DateExtension.swift */; };
+		2AE3FD7624B785D8003F2651 /* AddActivityViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2AE3FD7524B785D8003F2651 /* AddActivityViewController.storyboard */; };
+		2AE3FD7824B785E7003F2651 /* AddActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE3FD7724B785E7003F2651 /* AddActivityViewController.swift */; };
 		2AEC6FA724AFA9F00015E092 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AEC6FA624AFA9F00015E092 /* AppDelegate.swift */; };
 		2AEC6FA924AFA9F00015E092 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AEC6FA824AFA9F00015E092 /* SceneDelegate.swift */; };
 		2AEC6FB024AFA9F30015E092 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AEC6FAF24AFA9F30015E092 /* Assets.xcassets */; };
@@ -74,6 +76,8 @@
 		2AE3FD6E24B72124003F2651 /* UITextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
 		2AE3FD7024B725E4003F2651 /* DayFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayFunctions.swift; sourceTree = "<group>"; };
 		2AE3FD7224B733F3003F2651 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
+		2AE3FD7524B785D8003F2651 /* AddActivityViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddActivityViewController.storyboard; sourceTree = "<group>"; };
+		2AE3FD7724B785E7003F2651 /* AddActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddActivityViewController.swift; sourceTree = "<group>"; };
 		2AEC6FA324AFA9F00015E092 /* Itinerary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Itinerary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AEC6FA624AFA9F00015E092 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2AEC6FA824AFA9F00015E092 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -160,6 +164,7 @@
 				2AA8CAB824B383D100B30A98 /* TripsViewController */,
 				2A2FEF4024B6158500929ABC /* ActivitiesViewController */,
 				2AE3FD6724B71581003F2651 /* AddDayViewController */,
+				2AE3FD7424B785A0003F2651 /* AddActivityViewController */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -215,6 +220,15 @@
 				2AE3FD6A24B715DA003F2651 /* AddDayViewController.swift */,
 			);
 			path = AddDayViewController;
+			sourceTree = "<group>";
+		};
+		2AE3FD7424B785A0003F2651 /* AddActivityViewController */ = {
+			isa = PBXGroup;
+			children = (
+				2AE3FD7524B785D8003F2651 /* AddActivityViewController.storyboard */,
+				2AE3FD7724B785E7003F2651 /* AddActivityViewController.swift */,
+			);
+			path = AddActivityViewController;
 			sourceTree = "<group>";
 		};
 		2AEC6F9A24AFA9F00015E092 = {
@@ -310,6 +324,7 @@
 				2AA8CACC24B3A40600B30A98 /* Colours.xcassets in Resources */,
 				2A2FEF4424B61C3400929ABC /* ActivitiesViewController.storyboard in Resources */,
 				2AE3FD6924B715C4003F2651 /* AddDayViewController.storyboard in Resources */,
+				2AE3FD7624B785D8003F2651 /* AddActivityViewController.storyboard in Resources */,
 				2AA8CABC24B3841200B30A98 /* TripsViewController.storyboard in Resources */,
 				2AA8CACA24B3A1FC00B30A98 /* FugazOne-Regular.ttf in Resources */,
 				2AEC6FB024AFA9F30015E092 /* Assets.xcassets in Resources */,
@@ -344,6 +359,7 @@
 				2AA8CAD624B478DA00B30A98 /* PopupUIView.swift in Sources */,
 				2AEC6FA924AFA9F00015E092 /* SceneDelegate.swift in Sources */,
 				2AA8CABF24B3847D00B30A98 /* TripsViewController.swift in Sources */,
+				2AE3FD7824B785E7003F2651 /* AddActivityViewController.swift in Sources */,
 				2A2FEF4224B615C600929ABC /* ActivitiesViewController.swift in Sources */,
 				2AA8CAD324B4746900B30A98 /* AddTripViewController.swift in Sources */,
 				2AA8CAB524B37DB800B30A98 /* TripFunctions.swift in Sources */,

@@ -62,10 +62,11 @@ class ActivitiesViewController: UIViewController {
         
         // Create Day, Activity and Cancel Buttons for Action Sheet
         let dayAction = UIAlertAction(title: "Day", style: .default, handler: handleAddDay)
-        let activityAction = UIAlertAction(title: "Activity", style: .default) { (UIAlertAction) in
-                print("Add Activity")
-        }
+        let activityAction = UIAlertAction(title: "Activity", style: .default, handler: handleAddActivity)
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        
+        // Disable add Activity Action if there are no days added to the trip
+            activityAction.isEnabled = tripModel!.dayModels.count > 0
         
         // Add Buttons to ActionSheet
         alert.addAction(dayAction)
@@ -103,6 +104,17 @@ class ActivitiesViewController: UIViewController {
             self.tableView.insertSections(IndexSet(indexArray), with: UITableView.RowAnimation.automatic)
         }
 
+        present(vc, animated: true)
+    }
+    
+    // Called when user clicks on Activity in action sheet
+    func handleAddActivity(action: UIAlertAction) {
+        
+        // Segue to AddDayViewController
+        let vc = AddActivityViewController.getInstance() as! AddActivityViewController
+        vc.tripModel = tripModel
+        
+        
         present(vc, animated: true)
     }
     
