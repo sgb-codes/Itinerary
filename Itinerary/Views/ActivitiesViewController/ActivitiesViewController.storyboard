@@ -24,7 +24,7 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="headerCell" rowHeight="65" id="6PJ-I0-eDI" customClass="HeaderTableViewCell" customModule="Itinerary" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="headerCell" rowHeight="65" id="6PJ-I0-eDI" customClass="HeaderTableViewCell" customModule="Itinerary" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6PJ-I0-eDI" id="Fxq-vJ-jaV">
@@ -61,7 +61,7 @@
                                             <outlet property="titleLabel" destination="wNa-tG-1WC" id="Zba-Cp-pRO"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="100" id="6zZ-Ug-9QA" customClass="ActivityTableViewCell" customModule="Itinerary" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="100" id="6zZ-Ug-9QA" customClass="ActivityTableViewCell" customModule="Itinerary" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="93" width="414" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6zZ-Ug-9QA" id="ZBk-HG-l9z">
@@ -127,6 +127,15 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="NRo-5u-3wg" customClass="PopupButton" customModule="Itinerary" customModuleProvider="target">
+                                <rect key="frame" x="332" y="801" width="56" height="56"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" image="plus" catalog="system"/>
+                                <connections>
+                                    <action selector="addAction:" destination="6pf-L5-QSV" eventType="touchUpInside" id="exm-Um-cc2"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -142,6 +151,7 @@
                         <viewLayoutGuide key="safeArea" id="Imf-AW-6OD"/>
                     </view>
                     <connections>
+                        <outlet property="addButton" destination="NRo-5u-3wg" id="WE8-qP-7ky"/>
                         <outlet property="backgroundImageView" destination="UK5-44-MZM" id="w3p-nS-zf5"/>
                         <outlet property="tableView" destination="i63-Cw-Mdt" id="09g-bp-0oj"/>
                     </connections>
@@ -153,6 +163,7 @@
     </scenes>
     <color key="tintColor" name="Tint"/>
     <resources>
+        <image name="plus" catalog="system" width="128" height="113"/>
         <namedColor name="Accent">
             <color red="0.18000000715255737" green="0.2199999988079071" blue="0.25099998712539673" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

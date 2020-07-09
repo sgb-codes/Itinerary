@@ -35,7 +35,7 @@ class TripsViewController: UIViewController{
                 if UserDefaults.standard.bool(forKey: Constants.seenHelpView) == false {
                     // Show user Help Screen
                     self.view.addSubview(self.helpView)
-                    self.helpView.frame = self.view.frame
+                    self.helpView.frame = self.view.bounds
                 }
             }
         }
@@ -147,7 +147,7 @@ extension TripsViewController: UITableViewDataSource, UITableViewDelegate {
         
         // Add image to Edit Button and Change Background Colour
         edit.image = UIImage(systemName: "pencil")
-        edit.backgroundColor = UIColor(named: "Edit")
+        edit.backgroundColor = Theme.edit
         return UISwipeActionsConfiguration(actions: [edit])
     }
 }

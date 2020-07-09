@@ -14,6 +14,7 @@ class ActivitiesViewController: UIViewController {
     
     @IBOutlet weak var backgroundImageView: UIImageView!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var addButton: PopupButton!
     
     var tripId: UUID!
     var tripTitle: String = ""
@@ -30,6 +31,8 @@ class ActivitiesViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
        
+        // Stlye Floating Add Button
+        addButton.createFloatingActionButton()
 
         // Load Trip from Unique ID
         TripFunctions.readTrip(by: tripId) { [weak self] (model) in
@@ -46,6 +49,29 @@ class ActivitiesViewController: UIViewController {
         // Set Height of Section Header Cell
         sectionHeaderHeight = tableView.dequeueReusableCell(withIdentifier: Constants.headerCell)?.contentView.bounds.height ?? 0
     }
+    
+    @IBAction func addAction(_ sender: PopupButton) {
+        
+        let alert = UIAlertController(title: "What would you like to add?", message: nil, preferredStyle: .actionSheet)
+        let dayAction = UIAlertAction(title: "Day", style: .default, handler: handleAddDay)
+        let activityAction = UIAlertAction(title: "Activity", style: .default) { (UIAlertAction) in
+                print("Add Activity")
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        
+        alert.addAction(dayAction)
+        alert.addAction(activityAction)
+        alert.addAction(cancelAction)
+        
+        alert.view.tintColor = Theme.edit
+        
+        present(alert, animated: true)
+    }
+    
+    func handleAddDay(action: UIAlertAction) {
+        print("Add new Day")
+    }
+    
     
 }
 
