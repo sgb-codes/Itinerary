@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y7F-jo-wWR">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Add Day View Controller-->
+        <scene sceneID="HaR-R9-kJM">
+            <objects>
+                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="overCurrentContext" id="Y7F-jo-wWR" customClass="AddDayViewController" customModule="Itinerary" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Vha-f3-WYX">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PIj-W5-7IT" customClass="PopupUIView" customModule="Itinerary" customModuleProvider="target">
+                                <rect key="frame" x="10" y="335.5" width="394" height="225"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="fte-fd-XIW">
+                                        <rect key="frame" x="10" y="10" width="374" height="205"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="djI-ee-gx9">
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="40"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Day" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4MW-0v-QgL">
+                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="40"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title or Date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tab-PT-b4b">
+                                                <rect key="frame" x="0.0" y="55" width="374" height="40"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Description (optional)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Suw-bI-Ge6">
+                                                <rect key="frame" x="0.0" y="110" width="374" height="40"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="100" translatesAutoresizingMaskIntoConstraints="NO" id="jYz-bD-dHn">
+                                                <rect key="frame" x="0.0" y="165" width="374" height="40"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rrR-mh-bjO" customClass="PopupButton" customModule="Itinerary" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="137" height="40"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="40" id="U2L-1n-f1k"/>
+                                                        </constraints>
+                                                        <state key="normal" title="Cancel"/>
+                                                        <connections>
+                                                            <action selector="cancel:" destination="Y7F-jo-wWR" eventType="touchUpInside" id="Npj-5h-n7z"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g2B-Wk-xei" customClass="PopupButton" customModule="Itinerary" customModuleProvider="target">
+                                                        <rect key="frame" x="237" y="0.0" width="137" height="40"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="40" id="Uyh-Hl-wt2"/>
+                                                        </constraints>
+                                                        <state key="normal" title="Save"/>
+                                                        <connections>
+                                                            <action selector="save:" destination="Y7F-jo-wWR" eventType="touchUpInside" id="bWK-Ek-nWo"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="djI-ee-gx9" secondAttribute="trailing" id="PCK-zL-j25"/>
+                                            <constraint firstItem="jYz-bD-dHn" firstAttribute="leading" secondItem="fte-fd-XIW" secondAttribute="leading" id="St0-Qh-8fI"/>
+                                            <constraint firstItem="djI-ee-gx9" firstAttribute="leading" secondItem="fte-fd-XIW" secondAttribute="leading" id="Uat-uc-yMU"/>
+                                            <constraint firstItem="tab-PT-b4b" firstAttribute="leading" secondItem="fte-fd-XIW" secondAttribute="leading" id="ii2-CX-R0I"/>
+                                            <constraint firstAttribute="trailing" secondItem="jYz-bD-dHn" secondAttribute="trailing" id="lRr-37-ByQ"/>
+                                            <constraint firstAttribute="trailing" secondItem="tab-PT-b4b" secondAttribute="trailing" id="rZb-Hk-cPb"/>
+                                            <constraint firstItem="Suw-bI-Ge6" firstAttribute="leading" secondItem="fte-fd-XIW" secondAttribute="leading" id="s1R-xD-930"/>
+                                            <constraint firstAttribute="trailing" secondItem="Suw-bI-Ge6" secondAttribute="trailing" id="ylf-ZU-5sw"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="fte-fd-XIW" firstAttribute="top" secondItem="PIj-W5-7IT" secondAttribute="top" constant="10" id="07l-UG-aiJ"/>
+                                    <constraint firstAttribute="bottom" secondItem="fte-fd-XIW" secondAttribute="bottom" constant="10" id="Hhz-bL-NkA"/>
+                                    <constraint firstAttribute="trailing" secondItem="fte-fd-XIW" secondAttribute="trailing" constant="10" id="omB-nE-ETd"/>
+                                    <constraint firstItem="fte-fd-XIW" firstAttribute="leading" secondItem="PIj-W5-7IT" secondAttribute="leading" constant="10" id="vGj-MB-wdz"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.40000000000000002" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="bmZ-sE-Mb0" firstAttribute="trailing" secondItem="PIj-W5-7IT" secondAttribute="trailing" constant="10" id="8Qy-aW-RlB"/>
+                            <constraint firstItem="PIj-W5-7IT" firstAttribute="leading" secondItem="bmZ-sE-Mb0" secondAttribute="leading" constant="10" id="GwK-3j-wxY"/>
+                            <constraint firstItem="PIj-W5-7IT" firstAttribute="centerY" secondItem="Vha-f3-WYX" secondAttribute="centerY" id="hRU-kf-yAv"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="bmZ-sE-Mb0"/>
+                    </view>
+                    <connections>
+                        <outlet property="cancelButton" destination="rrR-mh-bjO" id="AUx-hY-ZG4"/>
+                        <outlet property="saveButton" destination="g2B-Wk-xei" id="dlg-gd-Us3"/>
+                        <outlet property="subtitleTextField" destination="Suw-bI-Ge6" id="Tfu-J4-T2f"/>
+                        <outlet property="titleLabel" destination="4MW-0v-QgL" id="tRf-uK-mDb"/>
+                        <outlet property="titleTextField" destination="tab-PT-b4b" id="8nx-JW-VER"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qRp-0r-NY6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="569.56521739130437" y="-103.125"/>
+        </scene>
+    </scenes>
+</document>

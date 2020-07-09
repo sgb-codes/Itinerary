@@ -50,26 +50,39 @@ class ActivitiesViewController: UIViewController {
         sectionHeaderHeight = tableView.dequeueReusableCell(withIdentifier: Constants.headerCell)?.contentView.bounds.height ?? 0
     }
     
+    // Create Action sheet to let user Add Days or Activities
     @IBAction func addAction(_ sender: PopupButton) {
         
+        // Create Action Sheet
         let alert = UIAlertController(title: "What would you like to add?", message: nil, preferredStyle: .actionSheet)
+        
+        // Create Day, Activity and Cancel Buttons for Action Sheet
         let dayAction = UIAlertAction(title: "Day", style: .default, handler: handleAddDay)
         let activityAction = UIAlertAction(title: "Activity", style: .default) { (UIAlertAction) in
                 print("Add Activity")
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
         
+        // Add Buttons to ActionSheet
         alert.addAction(dayAction)
         alert.addAction(activityAction)
         alert.addAction(cancelAction)
         
+        // Allow AlertSheet to work on Ipad
+        alert.popoverPresentationController?.sourceView = addButton
+        
+        // Change Action Sheet title Colours
         alert.view.tintColor = Theme.edit
         
+        // Present Action Sheet to User
         present(alert, animated: true)
     }
     
+    // Called when user clicks on Day in action sheet
     func handleAddDay(action: UIAlertAction) {
-        print("Add new Day")
+        // Segue to AddDayViewController
+        let vc = AddDayViewController.getInstance()
+        present(vc, animated: true)
     }
     
     

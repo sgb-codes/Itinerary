@@ -97,8 +97,7 @@ extension TripsViewController: UITableViewDataSource, UITableViewDelegate {
         let trip = Data.tripModels[indexPath.row]
         
         // Instantiate an ActivitiesViewController and segue to it using the correct UUID
-        let storyboard = UIStoryboard(name: String(describing: ActivitiesViewController.self), bundle: nil)
-        let vc = storyboard.instantiateInitialViewController() as! ActivitiesViewController
+        let vc = ActivitiesViewController.getInstance() as! ActivitiesViewController
         vc.tripId = trip.id
         vc.tripTitle = trip.title
         navigationController?.pushViewController(vc, animated: true)
