@@ -16,34 +16,35 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PIj-W5-7IT" customClass="PopupUIView" customModule="Itinerary" customModuleProvider="target">
-                                <rect key="frame" x="10" y="335.5" width="394" height="225"/>
+                                <rect key="frame" x="10" y="260.5" width="394" height="375.5"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="fte-fd-XIW">
-                                        <rect key="frame" x="10" y="10" width="374" height="205"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="fte-fd-XIW">
+                                        <rect key="frame" x="10" y="10" width="374" height="355.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="djI-ee-gx9">
-                                                <rect key="frame" x="0.0" y="0.0" width="374" height="40"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="20.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Day" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4MW-0v-QgL">
-                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="40"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
                                             </stackView>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title or Date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tab-PT-b4b">
-                                                <rect key="frame" x="0.0" y="55" width="374" height="40"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
-                                            </textField>
+                                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="sAD-9i-IHu">
+                                                <rect key="frame" x="27" y="35.5" width="320" height="216"/>
+                                            </datePicker>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Description (optional)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Suw-bI-Ge6">
-                                                <rect key="frame" x="0.0" y="110" width="374" height="40"/>
+                                                <rect key="frame" x="0.0" y="266.5" width="374" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
+                                                <connections>
+                                                    <action selector="done:" destination="Y7F-jo-wWR" eventType="primaryActionTriggered" id="QzD-wr-01E"/>
+                                                </connections>
                                             </textField>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="100" translatesAutoresizingMaskIntoConstraints="NO" id="jYz-bD-dHn">
-                                                <rect key="frame" x="0.0" y="165" width="374" height="40"/>
+                                                <rect key="frame" x="0.0" y="315.5" width="374" height="40"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rrR-mh-bjO" customClass="PopupButton" customModule="Itinerary" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="137" height="40"/>
@@ -72,9 +73,7 @@
                                             <constraint firstAttribute="trailing" secondItem="djI-ee-gx9" secondAttribute="trailing" id="PCK-zL-j25"/>
                                             <constraint firstItem="jYz-bD-dHn" firstAttribute="leading" secondItem="fte-fd-XIW" secondAttribute="leading" id="St0-Qh-8fI"/>
                                             <constraint firstItem="djI-ee-gx9" firstAttribute="leading" secondItem="fte-fd-XIW" secondAttribute="leading" id="Uat-uc-yMU"/>
-                                            <constraint firstItem="tab-PT-b4b" firstAttribute="leading" secondItem="fte-fd-XIW" secondAttribute="leading" id="ii2-CX-R0I"/>
                                             <constraint firstAttribute="trailing" secondItem="jYz-bD-dHn" secondAttribute="trailing" id="lRr-37-ByQ"/>
-                                            <constraint firstAttribute="trailing" secondItem="tab-PT-b4b" secondAttribute="trailing" id="rZb-Hk-cPb"/>
                                             <constraint firstItem="Suw-bI-Ge6" firstAttribute="leading" secondItem="fte-fd-XIW" secondAttribute="leading" id="s1R-xD-930"/>
                                             <constraint firstAttribute="trailing" secondItem="Suw-bI-Ge6" secondAttribute="trailing" id="ylf-ZU-5sw"/>
                                         </constraints>
@@ -99,10 +98,10 @@
                     </view>
                     <connections>
                         <outlet property="cancelButton" destination="rrR-mh-bjO" id="AUx-hY-ZG4"/>
+                        <outlet property="datePicker" destination="sAD-9i-IHu" id="lKP-RF-QZc"/>
                         <outlet property="saveButton" destination="g2B-Wk-xei" id="dlg-gd-Us3"/>
                         <outlet property="subtitleTextField" destination="Suw-bI-Ge6" id="Tfu-J4-T2f"/>
                         <outlet property="titleLabel" destination="4MW-0v-QgL" id="tRf-uK-mDb"/>
-                        <outlet property="titleTextField" destination="tab-PT-b4b" id="8nx-JW-VER"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qRp-0r-NY6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

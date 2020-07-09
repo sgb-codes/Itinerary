@@ -11,15 +11,15 @@ import Foundation
 // Struct to hold Day Information, Unique ID to be used to fetch from database
 struct DayModel {
     var id: String!
-    var title = ""
+    var title = Date()
     var subtitle = ""
     var activityModels = [ActivityModel]()
     
-    init(title: String, subtitle: String, data: [ActivityModel]?) {
+    init(title: Date, subtitle: String, data: [ActivityModel]?) {
         id = UUID().uuidString
         self.title = title
         self.subtitle = subtitle
-        
+
         if let data = data {
             self.activityModels = data
         }

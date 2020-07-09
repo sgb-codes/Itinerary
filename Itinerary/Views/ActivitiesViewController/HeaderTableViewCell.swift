@@ -24,7 +24,11 @@ class HeaderTableViewCell: UITableViewCell {
     
     // Setup Data for Cell
     func setup(model: DayModel) {
-        titleLabel.text = model.title
+        
+        // Create a Date Formater and show Date
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        titleLabel.text = formatter.string(from: model.title)
         subtitleLabel.text = model.subtitle
     }
 }

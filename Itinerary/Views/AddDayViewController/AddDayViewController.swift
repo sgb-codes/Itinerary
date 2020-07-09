@@ -13,13 +13,13 @@ class AddDayViewController: UIViewController {
     //MARK: - Global Variables and IBOutlets
     
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var titleTextField: UITextField!
+    @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var subtitleTextField: UITextField!
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var saveButton: UIButton!
     
-    var doneSaving: (() -> ())?
-    var tripIndexToEdit: Int?
+    var doneSaving: ((DayModel) -> ())?
+    var tripIndex: Int!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +28,8 @@ class AddDayViewController: UIViewController {
         
         // Setup: Title Label
         titleLabel.font = UIFont(name: Theme.mainFontName, size: 26)
+        
+        self.hideKeyboardWhenTappedAround()
 
         
 //        // When Edit button Tapped, change ViewController Title and Load Trip details into ViewController
@@ -48,21 +50,22 @@ class AddDayViewController: UIViewController {
     @IBAction func save(_ sender: UIButton) {
         
         // Check Textfield is not nil and assign text to variable
-        guard titleTextField.hasValue, let newTitle = titleTextField.text else { return }
+//        guard titleTextField.hasValue, let newTitle = titleTextField.text else { return }
         
-//        // If Editing Trip then update TripModel
-//        if let index = tripIndexToEdit {
-//            TripFunctions.updateTrip(at: index, title: newTripName, image: imageView.image)
-//        }
-//        // If adding a new trip then Create new trip in TripModel
-//        else {
-//        TripFunctions.createTrip(tripModel: TripModel(title: newTripName, image: imageView.image))
-//        }
+        // Add Day to the Database
+        let dayModel = DayModel(title: datePicker.date, subtitle: subtitleTextField.text ?? "", data: nil)
+        DayFunctions.createDays(at: tripIndex, using: dayModel)
+        
         
         // Check Data Saved and Dismiss ViewController
         if let doneSaving = doneSaving {
-            doneSaving()
+            doneSaving(dayModel)
         }
         dismiss(animated: true)
+    }
+
+    // Text Field Exits when Done button is pressed
+    @IBAction func done(_ sender: UITextField) {
+        sender.resignFirstResponder()
     }
 }

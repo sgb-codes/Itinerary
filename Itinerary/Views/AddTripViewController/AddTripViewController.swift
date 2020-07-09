@@ -26,6 +26,8 @@ class AddTripViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.hideKeyboardWhenTappedAround()
+        
         //MARK: - Additional UI Setup
         
         // Setup: Title Label, Camera Colour, ViewController Corners
