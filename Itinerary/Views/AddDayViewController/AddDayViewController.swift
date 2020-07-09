@@ -28,12 +28,7 @@ class AddDayViewController: UIViewController {
         
         // Setup: Title Label
         titleLabel.font = UIFont(name: Theme.mainFontName, size: 26)
-        
-        // Drop Shadow on TitleLabel
-        titleLabel.layer.shadowOpacity = 1
-        titleLabel.layer.shadowColor = UIColor.white.cgColor
-        titleLabel.layer.shadowOffset = CGSize.zero
-        titleLabel.layer.shadowRadius = 5
+
         
 //        // When Edit button Tapped, change ViewController Title and Load Trip details into ViewController
 //        if let index = tripIndexToEdit {
@@ -53,23 +48,7 @@ class AddDayViewController: UIViewController {
     @IBAction func save(_ sender: UIButton) {
         
         // Check Textfield is not nil and assign text to variable
-        guard titleTextField.text != "", let newTripName = titleTextField.text else {
-            
-            // If text field is nil, add a warning sign to right side of textfield
-            // Create UIView to present image in
-            let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
-            
-            // Configure SFSymbol and Add it to Image View
-            let configuration = UIImage.SymbolConfiguration(pointSize: 25, weight: .bold, scale: .default)
-            imageView.image = UIImage(systemName: "exclamationmark.triangle", withConfiguration: configuration)
-            imageView.contentMode = .scaleAspectFit
-            imageView.tintColor = .red
-            
-            // Add ImageView with Image to Text Field
-            titleTextField.rightView = imageView
-            titleTextField.rightViewMode = .always
-            return
-        }
+        guard titleTextField.hasValue, let newTitle = titleTextField.text else { return }
         
 //        // If Editing Trip then update TripModel
 //        if let index = tripIndexToEdit {

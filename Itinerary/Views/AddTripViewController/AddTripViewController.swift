@@ -58,23 +58,7 @@ class AddTripViewController: UIViewController {
     @IBAction func save(_ sender: UIButton) {
         
         // Check Textfield is not nil and assign text to variable
-        guard tripTextField.text != "", let newTripName = tripTextField.text else {
-            
-            // If text field is nil, add a warning sign to right side of textfield
-            // Create UIView to present image in
-            let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
-            
-            // Configure SFSymbol and Add it to Image View
-            let configuration = UIImage.SymbolConfiguration(pointSize: 25, weight: .bold, scale: .default)
-            imageView.image = UIImage(systemName: "exclamationmark.triangle", withConfiguration: configuration)
-            imageView.contentMode = .scaleAspectFit
-            imageView.tintColor = .red
-            
-            // Add ImageView with Image to Text Field
-            tripTextField.rightView = imageView
-            tripTextField.rightViewMode = .always
-            return
-        }
+         guard tripTextField.hasValue, let newTripName = tripTextField.text else { return }
         
         // If Editing Trip then update TripModel
         if let index = tripIndexToEdit {
