@@ -3,20 +3,21 @@
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Trips View Controller-->
+        <!--Trips-->
         <scene sceneID="0lI-g5-12g">
             <objects>
                 <viewController id="x8P-E4-bfe" customClass="TripsViewController" customModule="Itinerary" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="p0U-9g-MNc">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tfM-Ws-kQ2">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="774"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="160" id="U1T-ee-KfR" customClass="TripsTableViewCell" customModule="Itinerary" customModuleProvider="target">
@@ -67,7 +68,7 @@
                                 </prototypes>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="YIE-fx-mAV">
-                                <rect key="frame" x="336" y="806" width="56" height="56"/>
+                                <rect key="frame" x="336" y="718" width="56" height="56"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" image="plus" catalog="system"/>
@@ -85,7 +86,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="x3E-8g-MKy"/>
                     </view>
-                    <navigationItem key="navigationItem" id="VVs-rY-Cj4"/>
+                    <navigationItem key="navigationItem" title="Trips" id="VVs-rY-Cj4"/>
                     <connections>
                         <outlet property="addButton" destination="YIE-fx-mAV" id="zC3-kW-gmi"/>
                         <outlet property="helpView" destination="m3f-ge-F8s" id="T6e-tI-2fC"/>
@@ -161,9 +162,10 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jU0-4i-Xij" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="dnr-XE-g1e">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" translucent="NO" id="dnr-XE-g1e">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" name="Tint"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -179,5 +181,8 @@
         <image name="deleteSwipe" width="672" height="256"/>
         <image name="editSwipe" width="664" height="258"/>
         <image name="plus" catalog="system" width="128" height="113"/>
+        <namedColor name="Tint">
+            <color red="0.99199998378753662" green="0.28600001335144043" blue="0.19599999487400055" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

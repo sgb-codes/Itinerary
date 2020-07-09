@@ -16,11 +16,15 @@ class ActivitiesViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var tripId: UUID!
+    var tripTitle: String = ""
     var tripModel: TripModel?
     var sectionHeaderHeight: CGFloat = 0.0
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Set Navigation Bar Title
+        title = tripTitle
         
         // Attach TableView to ViewController
         tableView.dataSource = self
@@ -35,7 +39,6 @@ class ActivitiesViewController: UIViewController {
             // Check there is data in the TripModel
             guard let model = model else { return }
             // Load Data into ViewController
-            self.title = model.title
             self.backgroundImageView.image = model.image
             self.tableView.reloadData()
         }
