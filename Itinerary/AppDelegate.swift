@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import IQKeyboardManagerSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -24,6 +25,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         navBarAppearanceProxy.titleTextAttributes =
             [NSAttributedString.Key.font: font,
              NSAttributedString.Key.foregroundColor: UIColor.white]
+        
+        IQKeyboardManager.shared.enable = true
         
         return true
     }
