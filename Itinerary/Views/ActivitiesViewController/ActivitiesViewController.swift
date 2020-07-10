@@ -20,7 +20,7 @@ class ActivitiesViewController: UIViewController {
     var tripTitle: String = ""
     var tripModel: TripModel?
     var sectionHeaderHeight: CGFloat = 0.0
-
+    
     fileprivate func updateTableViewWithTripData() {
         // Load Trip from Unique ID
         TripFunctions.readTrip(by: tripId) { [weak self] (model) in
@@ -44,10 +44,10 @@ class ActivitiesViewController: UIViewController {
         // Attach TableView to ViewController
         tableView.dataSource = self
         tableView.delegate = self
-       
+        
         // Stlye Floating Add Button
         addButton.createFloatingActionButton()
-
+        
         updateTableViewWithTripData()
         
         // Set Height of Section Header Cell
@@ -66,7 +66,7 @@ class ActivitiesViewController: UIViewController {
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
         
         // Disable add Activity Action if there are no days added to the trip
-            activityAction.isEnabled = tripModel!.dayModels.count > 0
+        activityAction.isEnabled = tripModel!.dayModels.count > 0
         
         // Add Buttons to ActionSheet
         alert.addAction(dayAction)
@@ -105,10 +105,10 @@ class ActivitiesViewController: UIViewController {
             guard let self = self else { return }
             self.tripModel?.dayModels.append(dayModel)
             let indexArray = [self.tripModel?.dayModels.firstIndex(of: dayModel) ?? 0 ]
-
+            
             self.tableView.insertSections(IndexSet(indexArray), with: UITableView.RowAnimation.automatic)
         }
-
+        
         present(vc, animated: true)
     }
     
@@ -126,11 +126,15 @@ class ActivitiesViewController: UIViewController {
             let indexPath = IndexPath(row: row, section: dayIndex)
             self.tableView.insertRows(at: [indexPath], with: .automatic)
         }
-
+        
         
         present(vc, animated: true)
     }
     
+    @IBAction func toggleEditMode(_ sender: UIBarButtonItem) {
+        tableView.isEditing.toggle()
+        sender.title = sender.title == "Edit" ? "Done" : "Edit"
+    }
     
 }
 
@@ -153,10 +157,10 @@ extension ActivitiesViewController: UITableViewDataSource, UITableViewDelegate {
     
     // Set Height of Section Header Cell
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-
+        
         return sectionHeaderHeight
     }
-
+    
     // Set Number of Rows Per Section
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tripModel?.dayModels[section].activityModels.count ?? 0
@@ -177,7 +181,7 @@ extension ActivitiesViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
         let activityModel = tripModel!.dayModels[indexPath.section].activityModels[indexPath.row]
-                
+        
         // Add Delete button to right hand side of Cell
         let delete = UIContextualAction(style: .destructive, title: "Delete") { (contextualAction, view, actionPerformed: @escaping (Bool) -> Void) in
             
@@ -257,6 +261,25 @@ extension ActivitiesViewController: UITableViewDataSource, UITableViewDelegate {
         edit.image = UIImage(systemName: "pencil")
         edit.backgroundColor = Theme.edit
         
-         return UISwipeActionsConfiguration(actions: [edit])
+        return UISwipeActionsConfiguration(actions: [edit])
+    }
+    
+    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        
+        // 1. Get the Current Activity
+        let activityModel = (tripModel?.dayModels[sourceIndexPath.section].activityModels[sourceIndexPath.row])!
+        
+        // 2. Delete the Activity from old location
+        tripModel?.dayModels[sourceIndexPath.section].activityModels.remove(at: sourceIndexPath.row)
+        
+        // 3. Insert the activity into the new location
+        tripModel?.dayModels[destinationIndexPath.section].activityModels.insert(activityModel, at: destinationIndexPath.row)
+        
+        // 4. Update the data store
+        ActivityFunctions.reorderActivity(at: getTripIndex(), oldDayIndex: sourceIndexPath.section, newDayIndex: destinationIndexPath.section, newActivityIndex: destinationIndexPath.row, activityModel: activityModel)
     }
 }
