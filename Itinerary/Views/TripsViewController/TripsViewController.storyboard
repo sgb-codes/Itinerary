@@ -100,6 +100,7 @@
                     <connections>
                         <outlet property="addButton" destination="YIE-fx-mAV" id="zC3-kW-gmi"/>
                         <outlet property="helpView" destination="m3f-ge-F8s" id="T6e-tI-2fC"/>
+                        <outlet property="logoImageView" destination="rra-37-Phk" id="lAp-Ee-cXA"/>
                         <outlet property="tableView" destination="tfM-Ws-kQ2" id="OG7-7n-wyb"/>
                     </connections>
                 </viewController>

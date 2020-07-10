@@ -15,6 +15,7 @@ class TripsViewController: UIViewController{
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet var helpView: UIVisualEffectView!
+    @IBOutlet weak var logoImageView: UIImageView!
     
     var tripIndexToEdit: Int?
     
@@ -29,7 +30,7 @@ class TripsViewController: UIViewController{
         TripFunctions.readTrip { [unowned self] in
             self.tableView.reloadData()
             
-        // Check if there is at least one row showing in ViewController
+            // Check if there is at least one row showing in ViewController
             if Data.tripModels.count >= 1 {
                 // Check user has not seen Help Screen
                 if UserDefaults.standard.bool(forKey: Constants.seenHelpView) == false {
@@ -39,11 +40,32 @@ class TripsViewController: UIViewController{
                 }
             }
         }
-
+        
         // Change Background colour and Style Floating Action button
         view.backgroundColor = Theme.background
         addButton.createFloatingActionButton()
+        
+        // Convert 200 Degrees into Radians to use for Animation
+        let radians = CGFloat(200 * Double.pi/180)
+        
+        // Animate Background Excursion Image .curveEaseIn means starts slow and gets faster
+        UIView.animate(withDuration: 1, delay: 0, options: [.curveEaseIn], animations: {
+            
+            // Fade to invsible
+            self.logoImageView.alpha = 0
+            
+            // Spin by radians and enlarge by 3 * Size
+            self.logoImageView.transform = CGAffineTransform(rotationAngle: radians)
+                .scaledBy(x: 3, y: 3)
+            
+            // Rotate around the y Axis
+            let yRotation = CATransform3DMakeRotation(radians, 0, 1, 0)
+            
+            // Add y Axis rotation to previously used transformations
+            self.logoImageView.layer.transform = CATransform3DConcat(self.logoImageView.layer.transform, yRotation)
+        })
     }
+    
     
     // User presses Floating Action Button or Edit Button and is shown AddTripViewController
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
