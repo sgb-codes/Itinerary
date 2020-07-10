@@ -84,7 +84,7 @@ class ActivitiesViewController: UIViewController {
     }
     
     
-    fileprivate func getTripIndex() -> Array<TripModel>.Index? {
+    fileprivate func getTripIndex() -> Array<TripModel>.Index! {
         return Data.tripModels.firstIndex(where: { (tripModel) -> Bool in
             tripModel.id == tripId
         })
@@ -164,10 +164,99 @@ extension ActivitiesViewController: UITableViewDataSource, UITableViewDelegate {
     
     // Set Data for Each TableViewCell
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var model = tripModel?.dayModels[indexPath.section].activityModels[indexPath.row]
-        var cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! ActivityTableViewCell
+        let model = tripModel?.dayModels[indexPath.section].activityModels[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! ActivityTableViewCell
         
         cell.setup(model: model!)
         return cell
+    }
+    
+    //MARK: - Add Swipe Functions to Cell UI
+    
+    // Add Delete Swipe function to Cell when swiped left
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        let activityModel = tripModel!.dayModels[indexPath.section].activityModels[indexPath.row]
+                
+        // Add Delete button to right hand side of Cell
+        let delete = UIContextualAction(style: .destructive, title: "Delete") { (contextualAction, view, actionPerformed: @escaping (Bool) -> Void) in
+            
+            // If users presses Delete create Alert to Confirm User Decision
+            let alert = UIAlertController(title: "Delete Activity", message: "Are you sure you want to delete this activity?", preferredStyle: .alert)
+            // Create Cancel Button for Alert
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (alertAction) in
+                actionPerformed(false)
+            }))
+            // Create Delete Button For Alert
+            alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { (alertAction) in
+                
+                // Delete Activity from Database and Delete Cell
+                ActivityFunctions.deleteActivity(at: self.getTripIndex(), for: indexPath.section, using: activityModel)
+                self.tripModel!.dayModels[indexPath.section].activityModels.remove(at: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: .automatic)
+                actionPerformed(true)
+            }))
+            
+            // Present Alert to User
+            self.present(alert, animated: true)
+        }
+        
+        // Add Bin Image to Delete Button
+        delete.image = UIImage(systemName: "bin.xmark")
+        return UISwipeActionsConfiguration(actions: [delete])
+    }
+    
+    // Add Edit Swipe function to cell when swiped left
+    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        let edit = UIContextualAction(style: .normal, title: "Edit") { (contextualAction, view, actionPerformed: (Bool) -> ()) in
+            let vc = AddActivityViewController.getInstance() as! AddActivityViewController
+            vc.tripModel = self.tripModel
+            
+            // Which Trip are we working with?
+            vc.tripIndex = self.getTripIndex()
+            
+            // Which Day are we on?
+            vc.dayIndexToEdit = indexPath.section
+            
+            // Which Activity are we editing?
+            vc.activityModelToEdit = self.tripModel?.dayModels[indexPath.section].activityModels[indexPath.row]
+            
+            // What do we want to happen after the Activity is saved?
+            vc.doneUpdating = { [weak self] oldDayIndex, newDayIndex, activityModel in
+                guard let self = self else { return }
+                
+                let oldActivityIndex = (self.tripModel?.dayModels[oldDayIndex].activityModels.firstIndex(of: activityModel))!
+                
+                if oldDayIndex == newDayIndex {
+                    // 1. Update the local table data
+                    self.tripModel?.dayModels[newDayIndex].activityModels[oldActivityIndex] = activityModel
+                    // 2. Refresh just that Row
+                    let indexPath = IndexPath(row: oldActivityIndex, section: newDayIndex)
+                    tableView.reloadRows(at: [indexPath], with: .automatic)
+                } else {
+                    // Activity Moved to a different day
+                    
+                    // 1. Remove activity from local table data
+                    self.tripModel?.dayModels[oldDayIndex].activityModels.remove(at: oldActivityIndex)
+                    // 2. Insert activity into new location
+                    let lastIndex = (self.tripModel?.dayModels[newDayIndex].activityModels.count)!
+                    self.tripModel?.dayModels[newDayIndex].activityModels.insert(activityModel, at: lastIndex)
+                    // 3. Update table rows
+                    tableView.performBatchUpdates({
+                        tableView.deleteRows(at: [indexPath], with: .automatic)
+                        let insertIndexPath = IndexPath(row: lastIndex, section: newDayIndex)
+                        tableView.insertRows(at: [insertIndexPath], with: .automatic)
+                    })
+                }
+            }
+            self.present(vc, animated: true)
+            actionPerformed(true)
+        }
+        // Add image to Edit Button and Change Background Colour
+        edit.image = UIImage(systemName: "pencil")
+        edit.backgroundColor = Theme.edit
+        
+         return UISwipeActionsConfiguration(actions: [edit])
     }
 }

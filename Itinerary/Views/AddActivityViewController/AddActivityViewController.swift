@@ -22,6 +22,11 @@ class AddActivityViewController: UIViewController {
     var tripModel: TripModel!
     var doneSaving: ((Int, ActivityModel) -> ())?
     
+    // For editing Activities
+    var dayIndexToEdit: Int?
+    var activityModelToEdit: ActivityModel!
+    var doneUpdating: ((Int, Int, ActivityModel) -> ())?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -34,6 +39,23 @@ class AddActivityViewController: UIViewController {
         
         // Setup: Title Label, Camera Colour, ViewController Corners
         titleLabel.font = UIFont(name: Theme.mainFontName, size: 26)
+        
+        if let dayIndex = dayIndexToEdit, let activityModel = activityModelToEdit {
+            // Update Activity: Populate the Popup
+            titleLabel.text = "Edit Activity"
+            
+            // Select the Day in the Picker View
+            dayPickerView.selectRow(dayIndex, inComponent: 0, animated: true)
+            
+            // Populate the Activity Data
+            // Set the selected Activity Type Button
+            activityTypeSelected(activityTypeButtons[activityModel.activityType.rawValue])
+            titleTextField.text = activityModel.title
+            subtitleTextField.text = activityModel.subTitle
+        } else {
+            // New Activity: Set default values
+            activityTypeSelected(activityTypeButtons[ActivityType.excursion.rawValue])
+        }
 
     }
     
@@ -49,13 +71,28 @@ class AddActivityViewController: UIViewController {
         guard titleTextField.hasValue, let newTitle = titleTextField.text else { return }
         
         let activityType: ActivityType = getSelectedActivityType()
-        let dayIndex = dayPickerView.selectedRow(inComponent: 0)
+        let newDayIndex = dayPickerView.selectedRow(inComponent: 0)
+        
+        if activityModelToEdit != nil {
+            // Update Activity
+            activityModelToEdit.activityType = activityType
+            activityModelToEdit.title = newTitle
+            activityModelToEdit.subTitle = subtitleTextField.text ?? ""
+            
+            ActivityFunctions.updateActivity(at: tripIndex, oldDayIndex: dayIndexToEdit!, newDayIndex: newDayIndex, using: activityModelToEdit)
+            
+            if let doneUpdating = doneUpdating, let oldDayIndex = dayIndexToEdit {
+                doneUpdating(oldDayIndex, newDayIndex, activityModelToEdit)
+            }
+        } else {
+            // New Activity
         let activityModel = ActivityModel(title: newTitle, subTitle: subtitleTextField.text ?? "", activityType: activityType)
         
-        ActivityFunctions.createActivity(at: tripIndex, for: dayIndex, using: activityModel)
+        ActivityFunctions.createActivity(at: tripIndex, for: newDayIndex, using: activityModel)
         
         if let doneSaving = doneSaving {
-            doneSaving(dayIndex, activityModel)
+            doneSaving(newDayIndex, activityModel)
+            }
         }
         dismiss(animated: true)
     }
