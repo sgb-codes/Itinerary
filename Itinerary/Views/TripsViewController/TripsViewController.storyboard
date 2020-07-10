@@ -16,6 +16,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Excursion" translatesAutoresizingMaskIntoConstraints="NO" id="rra-37-Phk">
+                                <rect key="frame" x="87" y="284" width="240" height="240"/>
+                                <color key="tintColor" name="Tint"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="240" id="pga-WG-Tsl"/>
+                                    <constraint firstAttribute="width" constant="240" id="pxE-rd-SBu"/>
+                                </constraints>
+                            </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tfM-Ws-kQ2">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="774"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -80,7 +88,9 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="x3E-8g-MKy" firstAttribute="bottom" secondItem="tfM-Ws-kQ2" secondAttribute="bottom" id="A0V-Im-cEg"/>
+                            <constraint firstItem="rra-37-Phk" firstAttribute="centerX" secondItem="p0U-9g-MNc" secondAttribute="centerX" id="Pob-np-C28"/>
                             <constraint firstItem="tfM-Ws-kQ2" firstAttribute="top" secondItem="x3E-8g-MKy" secondAttribute="top" id="Rg2-TL-KUh"/>
+                            <constraint firstItem="rra-37-Phk" firstAttribute="centerY" secondItem="p0U-9g-MNc" secondAttribute="centerY" id="mR9-a7-qFi"/>
                             <constraint firstItem="x3E-8g-MKy" firstAttribute="trailing" secondItem="tfM-Ws-kQ2" secondAttribute="trailing" id="p4H-70-Vkh"/>
                             <constraint firstItem="tfM-Ws-kQ2" firstAttribute="leading" secondItem="x3E-8g-MKy" secondAttribute="leading" id="rf6-Ma-5F5"/>
                         </constraints>
@@ -178,6 +188,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Excursion" width="1024" height="1024"/>
         <image name="deleteSwipe" width="672" height="256"/>
         <image name="editSwipe" width="664" height="258"/>
         <image name="plus" catalog="system" width="128" height="113"/>
