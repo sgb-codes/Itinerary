@@ -83,6 +83,13 @@ class ActivitiesViewController: UIViewController {
         present(alert, animated: true)
     }
     
+    
+    fileprivate func getTripIndex() -> Array<TripModel>.Index? {
+        return Data.tripModels.firstIndex(where: { (tripModel) -> Bool in
+            tripModel.id == tripId
+        })
+    }
+    
     // Called when user clicks on Day in action sheet
     func handleAddDay(action: UIAlertAction) {
         
@@ -92,10 +99,8 @@ class ActivitiesViewController: UIViewController {
         // AddDayViewController can access the data in our model
         vc.tripModel = tripModel
         
-        // Get refernece to Trip which will be shown
-        vc.tripIndex = Data.tripModels.firstIndex(where: { (tripModel) -> Bool in
-            tripModel.id == tripId
-        })
+        // Get reference to Trip which will be shown
+        vc.tripIndex = getTripIndex()
         vc.doneSaving = { [weak self] dayModel in
             guard let self = self else { return }
             self.tripModel?.dayModels.append(dayModel)
@@ -113,7 +118,15 @@ class ActivitiesViewController: UIViewController {
         // Segue to AddDayViewController
         let vc = AddActivityViewController.getInstance() as! AddActivityViewController
         vc.tripModel = tripModel
-        
+        vc.tripIndex = getTripIndex()
+        vc.doneSaving = { [weak self] dayIndex, activityModel in
+            guard let self = self else { return }
+            self.tripModel?.dayModels[dayIndex].activityModels.append(activityModel)
+            let row = (self.tripModel?.dayModels[dayIndex].activityModels.count)! - 1
+            let indexPath = IndexPath(row: row, section: dayIndex)
+            self.tableView.insertRows(at: [indexPath], with: .automatic)
+        }
+
         
         present(vc, animated: true)
     }

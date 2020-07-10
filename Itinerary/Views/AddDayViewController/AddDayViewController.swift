@@ -57,7 +57,7 @@ class AddDayViewController: UIViewController {
         
         // Add Day to the Database
         let dayModel = DayModel(title: datePicker.date, subtitle: subtitleTextField.text ?? "", data: nil)
-        DayFunctions.createDays(at: tripIndex, using: dayModel)
+        DayFunctions.createDay(at: tripIndex, using: dayModel)
         
         
         // Check Data Saved and Dismiss ViewController

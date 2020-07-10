@@ -10,7 +10,7 @@ import Foundation
 
 class DayFunctions {
     // Create a New Day and Add to the Data Model
-    static func createDays(at tripIndex: Int, using dayModel: DayModel) {
+    static func createDay(at tripIndex: Int, using dayModel: DayModel) {
         Data.tripModels[tripIndex].dayModels.append(dayModel)
     }
 }
